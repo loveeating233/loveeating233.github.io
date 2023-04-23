@@ -6,7 +6,7 @@
   <link href="https://loveeating233.github.io/atom.xml" rel="self"/>
   
   <link href="https://loveeating233.github.io/"/>
-  <updated>2023-04-21T07:06:26.413Z</updated>
+  <updated>2023-04-23T08:18:45.176Z</updated>
   <id>https://loveeating233.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://loveeating233.github.io/2023/04/23/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    <id>https://loveeating233.github.io/2023/04/23/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</id>
+    <published>2023-04-23T07:44:36.605Z</published>
+    <updated>2023-04-23T08:18:45.176Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="…运算符复制对象"><a href="#…运算符复制对象" class="headerlink" title="…运算符复制对象"></a>…运算符复制对象</h3><p>首先先复习一下…运算符的基础语法</p><p><img src="/./../img/image-20230423161320274.png" alt="image-20230423161320274"></p><p>虽然我们不能用它展开对象，但是可以用它复制对象</p><p><img src="/./../img/image-20230423161602110.png" alt="image-20230423161602110"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let car=&#123;</span><br><span class="line">      name:&#x27;benci&#x27;,</span><br><span class="line">      wheel:4</span><br><span class="line">    &#125;</span><br><span class="line">    let copyCar = &#123;...car&#125;</span><br><span class="line">    console.log(copyCar) // &#123;name:&#x27;benci&#x27;,wheel:4&#125;</span><br><span class="line"></span><br><span class="line">    copyCar.name = &#x27;aodi&#x27;</span><br><span class="line">    console.log(car.name) // benci</span><br></pre></td></tr></table></figure><p>复制对象同时，修改它的属性</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let car=&#123;</span><br><span class="line">      name:&#x27;benci&#x27;,</span><br><span class="line">      wheel:4</span><br><span class="line">    &#125;</span><br><span class="line">    let copyCar = &#123;...car,name:&#x27;aodi&#x27;,price:1000&#125;</span><br><span class="line">    console.log(copyCar) //&#123; name: &#x27;aodi&#x27;, wheel: 4, price: 1000&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title></title>

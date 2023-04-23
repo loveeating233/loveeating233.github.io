@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2023/04/21/axios/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+  </entry>
+  <entry>
     <title>git使用教程</title>
     <url>/2023/03/16/git%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="linux指令"><a href="#linux指令" class="headerlink" title="linux指令"></a>linux指令</h3><ul>
@@ -172,141 +177,6 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2023/04/21/axios/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2023/03/17/this%E6%8C%87%E5%90%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>-–</p>
-<p>title: this指向</p>
-<p>date: 2023-03-17 12:37:36</p>
-<p>tags:</p>
-<p>-–</p>
-<h2 id="默认绑定规则：window"><a href="#默认绑定规则：window" class="headerlink" title="默认绑定规则：window"></a>默认绑定规则：window</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>===<span class="variable language_">window</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="函数的独立调用：window"><a href="#函数的独立调用：window" class="headerlink" title="函数的独立调用：window"></a>函数的独立调用：window</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title function_">test</span>() <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
-
-<p>你可以理解为 window.test() </p>
-<h4 id="立即执行函数：-window"><a href="#立即执行函数：-window" class="headerlink" title="立即执行函数： window"></a>立即执行函数： window</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>) <span class="comment">// window</span></span><br><span class="line">        &#125;)()</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在浏览器环境中，立即执行函数的this指向window。可能以后在模块中指向的是模块中的环境.如果换一个环境，它指向的是相应的全局对象</p>
-</blockquote>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 闭包：函数嵌套函数，内部函数就是闭包</span></span><br><span class="line">        <span class="comment">// 内部函数没有执行完，外部函数的变量不会被销毁</span></span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">outfun</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">function</span> <span class="title function_">inerfun</span>(<span class="params"></span>)&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//1</span></span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> inerfun</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> b = <span class="title function_">outfun</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="title function_">b</span>() <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>你可以理解为是函数独立调用</p>
-</blockquote>
-<h2 id="隐式绑定：谁调用，this指向谁"><a href="#隐式绑定：谁调用，this指向谁" class="headerlink" title="隐式绑定：谁调用，this指向谁"></a>隐式绑定：谁调用，this指向谁</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">            <span class="attr">a</span>:<span class="number">1</span>,</span><br><span class="line">            <span class="attr">b</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        obj.<span class="title function_">b</span>()<span class="comment">// this指向obj这个对象</span></span><br></pre></td></tr></table></figure>
-
-<hr></hr>
-
-<hr></hr>
-
-<p>只有函数执行，里面的this才有指向，函数不执行，里面的this毫无意义。</p>
-<p>下图中，这两个this是不一样的。每一个函数的执行都会有一个自身的this指向，虽然可能它们指向的是同一个东西，但每个this本身是不一样的</p>
-<p>上面一个this是obj，因为是obj调用</p>
-<p>下面一个是window，因为自调用(函数独立调用)</p>
-<p><img src="/./../img/image-20230317104206653.png" alt="image-20230317104206653"></p>
-<hr></hr>
-
-<p>看一道题目</p>
-<p><img src="/./../img/image-20230317153545250.png" alt="image-20230317153545250"></p>
-<blockquote>
-<p>函数中的this只有函数被调用的时候，才会有指向，因为是obj调用的，所以this的指向是obj</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">            console.log(this)</span><br><span class="line">        &#125;</span><br><span class="line">        let obj=&#123;</span><br><span class="line">            a:1,</span><br><span class="line">            foo:foo</span><br><span class="line">        &#125;</span><br><span class="line">        let bar = obj.foo</span><br><span class="line">        bar() // window</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p> 调用,所以是window</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/03/05/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>todoList</title>
-    <url>/2023/03/14/todo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="第一步：把老师的给的-html-和-css-样式拆成组件的形式"><a href="#第一步：把老师的给的-html-和-css-样式拆成组件的形式" class="headerlink" title="第一步：把老师的给的 html 和 css 样式拆成组件的形式"></a>第一步：把老师的给的 html 和 css 样式拆成组件的形式</h4><p><img src="/./../img/image-20230314162314449.png" alt="image-20230314162314449"></p>
-<blockquote>
-<p>mylist 里包含 myitem</p>
-</blockquote>
-<h4 id="第二步-分析你的那些-todos-要放在哪？"><a href="#第二步-分析你的那些-todos-要放在哪？" class="headerlink" title="第二步 分析你的那些 todos 要放在哪？"></a>第二步 分析你的那些 todos 要放在哪？</h4><h5 id="因为那些-todos-是在-list-里面嘛-所以我们肯定考虑先放到-list-里面保存数据"><a href="#因为那些-todos-是在-list-里面嘛-所以我们肯定考虑先放到-list-里面保存数据" class="headerlink" title="因为那些 todos 是在 list 里面嘛 所以我们肯定考虑先放到 list 里面保存数据"></a>因为那些 todos 是在 list 里面嘛 所以我们肯定考虑先放到 list 里面保存数据</h5><p><img src="/./../img/image-20230314163133176.png" alt="image-20230314163133176"></p>
-<p>myitem</p>
-<p><img src="/./../img/image-20230314164205437.png" alt="image-20230314164205437"></p>
-<h4 id="第三步-添加一个-todo"><a href="#第三步-添加一个-todo" class="headerlink" title="第三步 添加一个 todo"></a>第三步 添加一个 todo</h4><h5 id="涉及-子传父（父给子一个函数，子调用）"><a href="#涉及-子传父（父给子一个函数，子调用）" class="headerlink" title="涉及 子传父（父给子一个函数，子调用）"></a>涉及 子传父（父给子一个函数，子调用）</h5><h4 id=""><a href="#" class="headerlink" title=""></a><img src="/./../img/image-20230314170946330.png" alt="image-20230314170946330"></h4><p>然后你就要把这个 todoObj push 到 list 数组里了 但是这一步 你现在还办不了（对于初级来说办不了 得用后面的组件通信）。因为</p>
-<p>你的 header 和 list 是同一级啊 所以 你得把 list 这个数组放到 app 里面</p>
-<p><img src="/./../img/image-20230314171201367.png" alt="image-20230314171201367"></p>
-<p>app通过props将list传给list</p>
-<p><img src="/./../img/image-20230314222849496.png" alt="image-20230314222849496"></p>
-<p>list组件接收</p>
-<p><img src="/./../img/image-20230314222922406.png" alt="image-20230314222922406"></p>
-<p>接下来我们实现如何 子传父（header 传给 app）</p>
-<p>app组件代码</p>
-<p><img src="/./../img/image-20230314223644500.png" alt="image-20230314223644500"></p>
-<p><img src="/./../img/image-20230314223705813.png" alt="image-20230314223705813"></p>
-<p>header组件代码</p>
-<p><img src="/./../img/image-20230314223742032.png" alt="image-20230314223742032"></p>
-<p>进一步优化代码</p>
-<p><img src="/./../img/image-20230314224646071.png" alt="image-20230314224646071"></p>
-<h4 id="第四步-勾选check"><a href="#第四步-勾选check" class="headerlink" title="第四步 勾选check"></a>第四步 勾选check</h4><p><img src="/./../img/image-20230315103510380.png" alt="image-20230315103510380"></p>
-<p>思路 拿到勾选框的id  然后foreach那个todolist  找到那个对象，给done值取反</p>
-<p><img src="/./../img/image-20230315103719009.png" alt="image-20230315103719009"></p>
-<h5 id="数据在哪里-操作数据的方法就在哪里"><a href="#数据在哪里-操作数据的方法就在哪里" class="headerlink" title="数据在哪里 操作数据的方法就在哪里"></a>数据在哪里 操作数据的方法就在哪里</h5><p><img src="/./../img/image-20230315103815898.png" alt="image-20230315103815898"></p>
-<p>然后用props把这个方法传到itme，然后item调用</p>
-<h5 id="一个更简单的方法"><a href="#一个更简单的方法" class="headerlink" title="一个更简单的方法"></a>一个更简单的方法</h5><p>原理 如果你是个checkbox，v-mdoel如果绑定的是布尔值，那么这个布尔值就可以影响checkbox的勾选或者不勾选，而且v-model还是双向数据绑定，所以懂我的意思吧~</p>
-<p><img src="/./../img/image-20230315104131608.png" alt="image-20230315104131608"></p>
-<blockquote>
-<p>但是这种作法不推荐，因为vue不推荐大家修改props，但是这么写不会报错的原因就是，vue检测props的修改是浅层地监视，不是深层。我上述那种修改todo.done属于修改对象里的某个属性（深层修改）</p>
-</blockquote>
-<h4 id="删除一个todo"><a href="#删除一个todo" class="headerlink" title="删除一个todo"></a>删除一个todo</h4><p>拿到要删除的那个todo的id，然后filter todolist数组</p>
-<p><img src="/./../img/image-20230315113218393.png" alt="image-20230315113218393"></p>
-<p><img src="/./../img/image-20230315113249379.png" alt="image-20230315113249379"></p>
-<h4 id="统计已完成的todo"><a href="#统计已完成的todo" class="headerlink" title="统计已完成的todo"></a>统计已完成的todo</h4><h5 id="自己的写法"><a href="#自己的写法" class="headerlink" title="自己的写法"></a>自己的写法</h5><p><img src="/./../img/image-20230315170200855.png" alt="image-20230315170200855"></p>
-<h5 id="用数组的reduce方法进行统计"><a href="#用数组的reduce方法进行统计" class="headerlink" title="用数组的reduce方法进行统计"></a>用数组的reduce方法进行统计</h5><p>代码</p>
-<p><img src="/./../img/image-20230315170330557.png" alt="image-20230315170330557"></p>
-<p>忘了见</p>
-<p><img src="/./../img/image-20230315170307920.png" alt="image-20230315170307920"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let x = this.todos.reduce((pre,todo)=&gt;&#123;</span><br><span class="line">      // 第二个参数就是数组里的每一个元素</span><br><span class="line">      return pre + (todo.done==true?1:0) </span><br><span class="line">    &#125;,0) </span><br><span class="line">    return x </span><br></pre></td></tr></table></figure>
-
-<h4 id="全选以及取消全选"><a href="#全选以及取消全选" class="headerlink" title="全选以及取消全选"></a>全选以及取消全选</h4><h5 id="当已完成的todo-x3D-全部todo-自动勾上"><a href="#当已完成的todo-x3D-全部todo-自动勾上" class="headerlink" title="当已完成的todo&#x3D;全部todo  自动勾上"></a>当已完成的todo&#x3D;全部todo  自动勾上</h5><p><img src="/./../img/image-20230315194705826.png" alt="image-20230315194705826"></p>
-<p><img src="/./../img/image-20230315194833316.png" alt="image-20230315194833316"></p>
-<h5 id="全选及取消全选"><a href="#全选及取消全选" class="headerlink" title="全选及取消全选"></a>全选及取消全选</h5><p>思路：点击复选框，获取复选框的状态（选中or没有选中） 然后拿这个状态值，去操作todolist里面的每一个todo，将每一个todo的done值都取和复选框一样的状态(app的方法通过props传给footer)</p>
-<p><img src="/./../img/image-20230315195011116.png" alt="image-20230315195011116"></p>
-<p><img src="/./../img/image-20230315195043064.png" alt="image-20230315195043064"></p>
-<p><img src="/./../img/image-20230315195428757.png" alt="image-20230315195428757"></p>
-<h4 id="清除已完成"><a href="#清除已完成" class="headerlink" title="清除已完成"></a>清除已完成</h4><p><img src="/./../img/image-20230315201542652.png" alt="image-20230315201542652"></p>
-<p><img src="/./../img/image-20230315201529160.png" alt="image-20230315201529160"></p>
-<p>这个clearDoned在app里面写</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clearDoned()&#123;</span><br><span class="line">      this.todos=this.todos.filter((todo)=&gt;&#123;</span><br><span class="line">return todo.done!=true</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h4><p>如果忘了基本api可以去看onenote笔记  看那两页就够了</p>
-<p><img src="/./../img/image-20230315220648307.png" alt="image-20230315220648307"></p>
-<p>具体代码</p>
-<p><img src="/./../img/image-20230315221057537.png" alt="image-20230315221057537"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>/2023/03/24/babel/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="邂逅babel"><a href="#邂逅babel" class="headerlink" title="邂逅babel"></a>邂逅babel</h3><p>babel刚开始就是用来将一些es6的js代码转化为es5，因为有些老的浏览器不识别es6的js语法的。到了后来功能也就越来越强大了</p>
 <h3 id="bale的安装"><a href="#bale的安装" class="headerlink" title="bale的安装"></a>bale的安装</h3><p><img src="/./../img/image-20230324162943896.png" alt="image-20230324162943896"></p>
@@ -334,62 +204,21 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2023/03/21/webpack/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>-–</p>
-<p>title: webpack</p>
-<p>date: 2023-03-21 12:37:36</p>
-<p>tags:</p>
-<p>-–</p>
-<h3 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h3><p><img src="/./../img/image-20230321212532898.png" alt="image-20230321212532898"></p>
-<p>就是 ts，less，sass，你的浏览器识别不了，但是这些语言却能提高代码的编写效率还有什么健壮性啊等等，所以我们需要用打包工具将这些浏览器识别不了的语言打包成浏览器可以识别的</p>
-<p>大概思路：（具体去见视频）</p>
-<p>就是你通过打包命令，将js进行处理，然后放到了一个dist文件夹里（里面管静态资源的）。</p>
-<p>你要给你的webpack进行配置，配置文件里写ta打包的入口文件，然后会根据入口文件的依赖来打包所需的文件，然后你也可以指定输出的文件夹，默认是dist。然后在你的html引入打包后的文件</p>
-<p>但是，webpack默认是不能打包css还有md等其他文件，你就需要下载loader了。</p>
-<p>比如你要打包css文件，你要下载css loader，你npm下载后，你要使用这个loader，你可以有很多种方式，常用的就是下面这种方式，</p>
-<p><img src="/./../img/image-20230322102305412.png" alt="image-20230322102305412"></p>
-<p>但是你还需要下一个style loader，用于将你打包后的css文件插入html中</p>
-<p>对less文件进行打包</p>
-<p>你需要借助lessc将less文件，转换为css文件。这个lessc与webpack没什么关系，是一个独立的工具</p>
-<p><img src="/./../img/image-20230322104049940.png" alt="image-20230322104049940"></p>
-<p><img src="/./../img/image-20230322104114070.png" alt="image-20230322104114070"></p>
-<p>你要用lessloader  必须下lessc，因为less loader是依赖lessc的</p>
-<h3 id="打开尚硅谷的webpack文档"><a href="#打开尚硅谷的webpack文档" class="headerlink" title="打开尚硅谷的webpack文档"></a>打开尚硅谷的webpack文档</h3><p><img src="/./../img/image-20230322223954377.png" alt="image-20230322223954377"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+    <title>Hello World</title>
+    <url>/2023/03/05/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/./../img/image-20230322224039402.png" alt="image-20230322224039402"></p>
-<h4 id="本地地址"><a href="#本地地址" class="headerlink" title="本地地址"></a>本地地址</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/webpack5-docs/</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>效果</p>
-<p><img src="/./../img/image-20230322224123767.png" alt="image-20230322224123767"></p>
-<h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">webpack_code # 项目根目录（所有指令必须在这个目录运行）</span><br><span class="line">    └── src # 项目源码目录</span><br><span class="line">        ├── js # js文件目录</span><br><span class="line">        │   ├── count.js</span><br><span class="line">        │   └── sum.js</span><br><span class="line">        └── main.js # 项目主文件，打包入口</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<h3 id="npx是个啥"><a href="#npx是个啥" class="headerlink" title="npx是个啥"></a>npx是个啥</h3><p>你执行完下面那个命令后，会在你的项目中生成一些包</p>
-<p><img src="/./../img/image-20230322235848123.png" alt="image-20230322235848123"></p>
-<p><img src="/./../img/image-20230322235917864.png" alt="image-20230322235917864"></p>
-<p>然后这个npx相当于自动给你配了一个环境变量，指向的是这个bin目录</p>
-<p><img src="/./../img/image-20230323000005971.png" alt="image-20230323000005971"></p>
-<p>npx webpack 就是调用里面那个webpack这个包</p>
-<p><img src="/./../img/image-20230323000117366.png" alt="image-20230323000117366"></p>
-<h3 id="打包css的webpack配置"><a href="#打包css的webpack配置" class="headerlink" title="打包css的webpack配置"></a>打包css的webpack配置</h3><p>具体操作看官网或者尚硅谷的那个文档</p>
-<p>这里先提醒一下，你需要下载两个loader，一个是cssloader 一个是style-loader(以后不知道要下多少个loader的时候，你就去看官网)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename:&#x27;main.js&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line">            </span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;], </span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [],</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>webpack.config.js备份</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename: &quot;static/js/main.js&quot;, // 将 js 文件输出到 static/js 目录中</span><br><span class="line">        // 自动清空上一次打包的内容</span><br><span class="line">        // 原理:在打包前把path整个目录清空然后再打包</span><br><span class="line">        clean:true</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line">            </span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;], </span><br><span class="line">          &#125;,</span><br><span class="line">          // less相关的loader</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.less$/i,</span><br><span class="line">            use: [</span><br><span class="line">              // compiles Less to CSS</span><br><span class="line">              &quot;style-loader&quot;,</span><br><span class="line">              &quot;css-loader&quot;,</span><br><span class="line">              &quot;less-loader&quot;,</span><br><span class="line">            ],</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(png|jpe?g|gif|webp)$/,</span><br><span class="line">            type: &quot;asset&quot;,</span><br><span class="line">            parser: &#123;</span><br><span class="line">              dataUrlCondition: &#123;</span><br><span class="line">                maxSize: 10 * 1024, // 小于10kb的图片会被base64处理</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              // 将图片文件输出到 static/imgs 目录中</span><br><span class="line">              // 将图片文件命名 [hash:8][ext][query]</span><br><span class="line">              // [hash:8]: hash值取8位</span><br><span class="line">              // [ext]: 使用之前的文件扩展名</span><br><span class="line">              // [query]: 添加之前的query参数</span><br><span class="line">              filename: &quot;static/imgs/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(ttf|woff2?)$/,</span><br><span class="line">            type: &quot;asset/resource&quot;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              filename: &quot;static/media/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.js$/,</span><br><span class="line">            exclude: /node_modules/, // 排除node_modules代码不编译</span><br><span class="line">            loader: &quot;babel-loader&quot;,</span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [</span><br><span class="line">      new HtmlWebpackPlugin(&#123;</span><br><span class="line">        // 以 public/index.html 为模板创建文件</span><br><span class="line">        // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源</span><br><span class="line">        template: path.resolve(__dirname, &quot;public/index.html&quot;),</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">     // 开发服务器</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    host: &quot;localhost&quot;, // 启动服务器域名</span><br><span class="line">    port: &quot;3000&quot;, // 启动服务器端口号</span><br><span class="line">    open: true, // 是否自动打开浏览器</span><br><span class="line">  &#125;,</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="提取css成单独的文件"><a href="#提取css成单独的文件" class="headerlink" title="提取css成单独的文件"></a>提取css成单独的文件</h3><p>你跟着文档做完那些步骤后，npm run build之后，ta会打包一个独立的css文件，在你static文件夹下的css文件夹里的main.css</p>
-<p><img src="/./../img/image-20230328082604310.png" alt="image-20230328082604310"></p>
-<p>之所以会输出到这个文件夹是因为你下面的指令</p>
-<p><img src="/./../img/image-20230328082641527.png" alt="image-20230328082641527"></p>
-<center>webpack.prod.js</center>
-
-<p>你现在main.css是长这样</p>
-<p><img src="/./../img/image-20230328084207777.png" alt="image-20230328084207777"></p>
-<p>你要对它进行压缩</p>
-<p>按照文档的步骤去操作</p>
-<p><img src="/./../img/image-20230328084254241.png" alt="image-20230328084254241">‘</p>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -710,52 +539,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>以后会用到的配置</title>
-    <url>/2023/03/15/%E4%BB%A5%E5%90%8E%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="转载别人文章的规范"><a href="#转载别人文章的规范" class="headerlink" title="转载别人文章的规范"></a>转载别人文章的规范</h3><h4 id="up的教程"><a href="#up的教程" class="headerlink" title="up的教程"></a>up的教程</h4><p><img src="/./../img/image-20230315152554412.png" alt="image-20230315152554412"></p>
-<h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><p><img src="/./../img/image-20230315152624239.png" alt="image-20230315152624239"></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright:  false</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright _author: xxxx </span><br><span class="line">copyright_ author _href: https://xxxxxx.com </span><br><span class="line">copyright_ url: https://xxxxxx.com </span><br><span class="line">copyright _info: 此文章版权归xxxxx所有，如有转载，请注明来自原作者</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>我的第一个文章</title>
-    <url>/2023/03/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>function a(){    console.log(‘hello world’)}JavaScript</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>代码块演示</title>
-    <url>/2023/03/14/%E4%BB%A3%E7%A0%81%E5%9D%97%E6%BC%94%E7%A4%BA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2023/03/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>-–</p>
-<p>title: 对象的拷贝</p>
-<p>date: 2023-03-20 12:37:36</p>
-<p>tags:</p>
-<p>-–</p>
-<h3 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h3><p><img src="/./../img/image-20230320103610460.png" alt="image-20230320103610460"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的引用赋值</span><br><span class="line">let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = info </span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // jams</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="对象的浅拷贝"><a href="#对象的浅拷贝" class="headerlink" title="对象的浅拷贝"></a>对象的浅拷贝</h3><p><img src="/./../img/image-20230320103450865.png" alt="image-20230320103450865"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的浅拷贝</span><br><span class="line">        let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // kobe</span><br></pre></td></tr></table></figure>
-
-<p>如果拷贝的对象里的属性中的值也是对象</p>
-<p><img src="/./../img/image-20230320111829811.png" alt="image-20230320111829811"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // jams</span><br></pre></td></tr></table></figure>
-
-<h3 id="对象的深拷贝"><a href="#对象的深拷贝" class="headerlink" title="对象的深拷贝"></a>对象的深拷贝</h3><h4 id="原生实现"><a href="#原生实现" class="headerlink" title="原生实现"></a>原生实现</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = JSON.parse(JSON.stringify(info)) //json.stryingfy 将对象转化为字符串  json.parse 将字符串转化为对象</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // curry</span><br></pre></td></tr></table></figure>
-
-<h4 id="引入lodash第三方库实现"><a href="#引入lodash第三方库实现" class="headerlink" title="引入lodash第三方库实现"></a>引入lodash第三方库实现</h4>]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/2023/03/16/vue3%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="MVVM模型"><a href="#MVVM模型" class="headerlink" title="MVVM模型"></a>MVVM模型</h3><p><img src="/./../img/image-20230316203832272.png" alt="image-20230316203832272"></p>
@@ -860,6 +643,237 @@
 <h3 id="v-model绑定表单"><a href="#v-model绑定表单" class="headerlink" title="v-model绑定表单"></a>v-model绑定表单</h3><h3 id="v-model-修饰符"><a href="#v-model-修饰符" class="headerlink" title="v-model 修饰符"></a>v-model 修饰符</h3><p><img src="/./../img/image-20230320154744997.png" alt="image-20230320154744997"></p>
 <p><img src="/./../img/image-20230320155605813.png" alt="image-20230320155605813"></p>
 <p><img src="/./../img/image-20230320160520876.png" alt="image-20230320160520876"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>代码块演示</title>
+    <url>/2023/03/14/%E4%BB%A3%E7%A0%81%E5%9D%97%E6%BC%94%E7%A4%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>todoList</title>
+    <url>/2023/03/14/todo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="第一步：把老师的给的-html-和-css-样式拆成组件的形式"><a href="#第一步：把老师的给的-html-和-css-样式拆成组件的形式" class="headerlink" title="第一步：把老师的给的 html 和 css 样式拆成组件的形式"></a>第一步：把老师的给的 html 和 css 样式拆成组件的形式</h4><p><img src="/./../img/image-20230314162314449.png" alt="image-20230314162314449"></p>
+<blockquote>
+<p>mylist 里包含 myitem</p>
+</blockquote>
+<h4 id="第二步-分析你的那些-todos-要放在哪？"><a href="#第二步-分析你的那些-todos-要放在哪？" class="headerlink" title="第二步 分析你的那些 todos 要放在哪？"></a>第二步 分析你的那些 todos 要放在哪？</h4><h5 id="因为那些-todos-是在-list-里面嘛-所以我们肯定考虑先放到-list-里面保存数据"><a href="#因为那些-todos-是在-list-里面嘛-所以我们肯定考虑先放到-list-里面保存数据" class="headerlink" title="因为那些 todos 是在 list 里面嘛 所以我们肯定考虑先放到 list 里面保存数据"></a>因为那些 todos 是在 list 里面嘛 所以我们肯定考虑先放到 list 里面保存数据</h5><p><img src="/./../img/image-20230314163133176.png" alt="image-20230314163133176"></p>
+<p>myitem</p>
+<p><img src="/./../img/image-20230314164205437.png" alt="image-20230314164205437"></p>
+<h4 id="第三步-添加一个-todo"><a href="#第三步-添加一个-todo" class="headerlink" title="第三步 添加一个 todo"></a>第三步 添加一个 todo</h4><h5 id="涉及-子传父（父给子一个函数，子调用）"><a href="#涉及-子传父（父给子一个函数，子调用）" class="headerlink" title="涉及 子传父（父给子一个函数，子调用）"></a>涉及 子传父（父给子一个函数，子调用）</h5><h4 id=""><a href="#" class="headerlink" title=""></a><img src="/./../img/image-20230314170946330.png" alt="image-20230314170946330"></h4><p>然后你就要把这个 todoObj push 到 list 数组里了 但是这一步 你现在还办不了（对于初级来说办不了 得用后面的组件通信）。因为</p>
+<p>你的 header 和 list 是同一级啊 所以 你得把 list 这个数组放到 app 里面</p>
+<p><img src="/./../img/image-20230314171201367.png" alt="image-20230314171201367"></p>
+<p>app通过props将list传给list</p>
+<p><img src="/./../img/image-20230314222849496.png" alt="image-20230314222849496"></p>
+<p>list组件接收</p>
+<p><img src="/./../img/image-20230314222922406.png" alt="image-20230314222922406"></p>
+<p>接下来我们实现如何 子传父（header 传给 app）</p>
+<p>app组件代码</p>
+<p><img src="/./../img/image-20230314223644500.png" alt="image-20230314223644500"></p>
+<p><img src="/./../img/image-20230314223705813.png" alt="image-20230314223705813"></p>
+<p>header组件代码</p>
+<p><img src="/./../img/image-20230314223742032.png" alt="image-20230314223742032"></p>
+<p>进一步优化代码</p>
+<p><img src="/./../img/image-20230314224646071.png" alt="image-20230314224646071"></p>
+<h4 id="第四步-勾选check"><a href="#第四步-勾选check" class="headerlink" title="第四步 勾选check"></a>第四步 勾选check</h4><p><img src="/./../img/image-20230315103510380.png" alt="image-20230315103510380"></p>
+<p>思路 拿到勾选框的id  然后foreach那个todolist  找到那个对象，给done值取反</p>
+<p><img src="/./../img/image-20230315103719009.png" alt="image-20230315103719009"></p>
+<h5 id="数据在哪里-操作数据的方法就在哪里"><a href="#数据在哪里-操作数据的方法就在哪里" class="headerlink" title="数据在哪里 操作数据的方法就在哪里"></a>数据在哪里 操作数据的方法就在哪里</h5><p><img src="/./../img/image-20230315103815898.png" alt="image-20230315103815898"></p>
+<p>然后用props把这个方法传到itme，然后item调用</p>
+<h5 id="一个更简单的方法"><a href="#一个更简单的方法" class="headerlink" title="一个更简单的方法"></a>一个更简单的方法</h5><p>原理 如果你是个checkbox，v-mdoel如果绑定的是布尔值，那么这个布尔值就可以影响checkbox的勾选或者不勾选，而且v-model还是双向数据绑定，所以懂我的意思吧~</p>
+<p><img src="/./../img/image-20230315104131608.png" alt="image-20230315104131608"></p>
+<blockquote>
+<p>但是这种作法不推荐，因为vue不推荐大家修改props，但是这么写不会报错的原因就是，vue检测props的修改是浅层地监视，不是深层。我上述那种修改todo.done属于修改对象里的某个属性（深层修改）</p>
+</blockquote>
+<h4 id="删除一个todo"><a href="#删除一个todo" class="headerlink" title="删除一个todo"></a>删除一个todo</h4><p>拿到要删除的那个todo的id，然后filter todolist数组</p>
+<p><img src="/./../img/image-20230315113218393.png" alt="image-20230315113218393"></p>
+<p><img src="/./../img/image-20230315113249379.png" alt="image-20230315113249379"></p>
+<h4 id="统计已完成的todo"><a href="#统计已完成的todo" class="headerlink" title="统计已完成的todo"></a>统计已完成的todo</h4><h5 id="自己的写法"><a href="#自己的写法" class="headerlink" title="自己的写法"></a>自己的写法</h5><p><img src="/./../img/image-20230315170200855.png" alt="image-20230315170200855"></p>
+<h5 id="用数组的reduce方法进行统计"><a href="#用数组的reduce方法进行统计" class="headerlink" title="用数组的reduce方法进行统计"></a>用数组的reduce方法进行统计</h5><p>代码</p>
+<p><img src="/./../img/image-20230315170330557.png" alt="image-20230315170330557"></p>
+<p>忘了见</p>
+<p><img src="/./../img/image-20230315170307920.png" alt="image-20230315170307920"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let x = this.todos.reduce((pre,todo)=&gt;&#123;</span><br><span class="line">      // 第二个参数就是数组里的每一个元素</span><br><span class="line">      return pre + (todo.done==true?1:0) </span><br><span class="line">    &#125;,0) </span><br><span class="line">    return x </span><br></pre></td></tr></table></figure>
+
+<h4 id="全选以及取消全选"><a href="#全选以及取消全选" class="headerlink" title="全选以及取消全选"></a>全选以及取消全选</h4><h5 id="当已完成的todo-x3D-全部todo-自动勾上"><a href="#当已完成的todo-x3D-全部todo-自动勾上" class="headerlink" title="当已完成的todo&#x3D;全部todo  自动勾上"></a>当已完成的todo&#x3D;全部todo  自动勾上</h5><p><img src="/./../img/image-20230315194705826.png" alt="image-20230315194705826"></p>
+<p><img src="/./../img/image-20230315194833316.png" alt="image-20230315194833316"></p>
+<h5 id="全选及取消全选"><a href="#全选及取消全选" class="headerlink" title="全选及取消全选"></a>全选及取消全选</h5><p>思路：点击复选框，获取复选框的状态（选中or没有选中） 然后拿这个状态值，去操作todolist里面的每一个todo，将每一个todo的done值都取和复选框一样的状态(app的方法通过props传给footer)</p>
+<p><img src="/./../img/image-20230315195011116.png" alt="image-20230315195011116"></p>
+<p><img src="/./../img/image-20230315195043064.png" alt="image-20230315195043064"></p>
+<p><img src="/./../img/image-20230315195428757.png" alt="image-20230315195428757"></p>
+<h4 id="清除已完成"><a href="#清除已完成" class="headerlink" title="清除已完成"></a>清除已完成</h4><p><img src="/./../img/image-20230315201542652.png" alt="image-20230315201542652"></p>
+<p><img src="/./../img/image-20230315201529160.png" alt="image-20230315201529160"></p>
+<p>这个clearDoned在app里面写</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clearDoned()&#123;</span><br><span class="line">      this.todos=this.todos.filter((todo)=&gt;&#123;</span><br><span class="line">return todo.done!=true</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h4><p>如果忘了基本api可以去看onenote笔记  看那两页就够了</p>
+<p><img src="/./../img/image-20230315220648307.png" alt="image-20230315220648307"></p>
+<p>具体代码</p>
+<p><img src="/./../img/image-20230315221057537.png" alt="image-20230315221057537"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2023/03/17/this%E6%8C%87%E5%90%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>-–</p>
+<p>title: this指向</p>
+<p>date: 2023-03-17 12:37:36</p>
+<p>tags:</p>
+<p>-–</p>
+<h2 id="默认绑定规则：window"><a href="#默认绑定规则：window" class="headerlink" title="默认绑定规则：window"></a>默认绑定规则：window</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>===<span class="variable language_">window</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="函数的独立调用：window"><a href="#函数的独立调用：window" class="headerlink" title="函数的独立调用：window"></a>函数的独立调用：window</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title function_">test</span>() <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+
+<p>你可以理解为 window.test() </p>
+<h4 id="立即执行函数：-window"><a href="#立即执行函数：-window" class="headerlink" title="立即执行函数： window"></a>立即执行函数： window</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>) <span class="comment">// window</span></span><br><span class="line">        &#125;)()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在浏览器环境中，立即执行函数的this指向window。可能以后在模块中指向的是模块中的环境.如果换一个环境，它指向的是相应的全局对象</p>
+</blockquote>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 闭包：函数嵌套函数，内部函数就是闭包</span></span><br><span class="line">        <span class="comment">// 内部函数没有执行完，外部函数的变量不会被销毁</span></span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">outfun</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">function</span> <span class="title function_">inerfun</span>(<span class="params"></span>)&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//1</span></span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> inerfun</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> b = <span class="title function_">outfun</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="title function_">b</span>() <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>你可以理解为是函数独立调用</p>
+</blockquote>
+<h2 id="隐式绑定：谁调用，this指向谁"><a href="#隐式绑定：谁调用，this指向谁" class="headerlink" title="隐式绑定：谁调用，this指向谁"></a>隐式绑定：谁调用，this指向谁</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">            <span class="attr">a</span>:<span class="number">1</span>,</span><br><span class="line">            <span class="attr">b</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        obj.<span class="title function_">b</span>()<span class="comment">// this指向obj这个对象</span></span><br></pre></td></tr></table></figure>
+
+<hr></hr>
+
+<hr></hr>
+
+<p>只有函数执行，里面的this才有指向，函数不执行，里面的this毫无意义。</p>
+<p>下图中，这两个this是不一样的。每一个函数的执行都会有一个自身的this指向，虽然可能它们指向的是同一个东西，但每个this本身是不一样的</p>
+<p>上面一个this是obj，因为是obj调用</p>
+<p>下面一个是window，因为自调用(函数独立调用)</p>
+<p><img src="/./../img/image-20230317104206653.png" alt="image-20230317104206653"></p>
+<hr></hr>
+
+<p>看一道题目</p>
+<p><img src="/./../img/image-20230317153545250.png" alt="image-20230317153545250"></p>
+<blockquote>
+<p>函数中的this只有函数被调用的时候，才会有指向，因为是obj调用的，所以this的指向是obj</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">            console.log(this)</span><br><span class="line">        &#125;</span><br><span class="line">        let obj=&#123;</span><br><span class="line">            a:1,</span><br><span class="line">            foo:foo</span><br><span class="line">        &#125;</span><br><span class="line">        let bar = obj.foo</span><br><span class="line">        bar() // window</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 调用,所以是window</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2023/03/21/webpack/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>-–</p>
+<p>title: webpack</p>
+<p>date: 2023-03-21 12:37:36</p>
+<p>tags:</p>
+<p>-–</p>
+<h3 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h3><p><img src="/./../img/image-20230321212532898.png" alt="image-20230321212532898"></p>
+<p>就是 ts，less，sass，你的浏览器识别不了，但是这些语言却能提高代码的编写效率还有什么健壮性啊等等，所以我们需要用打包工具将这些浏览器识别不了的语言打包成浏览器可以识别的</p>
+<p>大概思路：（具体去见视频）</p>
+<p>就是你通过打包命令，将js进行处理，然后放到了一个dist文件夹里（里面管静态资源的）。</p>
+<p>你要给你的webpack进行配置，配置文件里写ta打包的入口文件，然后会根据入口文件的依赖来打包所需的文件，然后你也可以指定输出的文件夹，默认是dist。然后在你的html引入打包后的文件</p>
+<p>但是，webpack默认是不能打包css还有md等其他文件，你就需要下载loader了。</p>
+<p>比如你要打包css文件，你要下载css loader，你npm下载后，你要使用这个loader，你可以有很多种方式，常用的就是下面这种方式，</p>
+<p><img src="/./../img/image-20230322102305412.png" alt="image-20230322102305412"></p>
+<p>但是你还需要下一个style loader，用于将你打包后的css文件插入html中</p>
+<p>对less文件进行打包</p>
+<p>你需要借助lessc将less文件，转换为css文件。这个lessc与webpack没什么关系，是一个独立的工具</p>
+<p><img src="/./../img/image-20230322104049940.png" alt="image-20230322104049940"></p>
+<p><img src="/./../img/image-20230322104114070.png" alt="image-20230322104114070"></p>
+<p>你要用lessloader  必须下lessc，因为less loader是依赖lessc的</p>
+<h3 id="打开尚硅谷的webpack文档"><a href="#打开尚硅谷的webpack文档" class="headerlink" title="打开尚硅谷的webpack文档"></a>打开尚硅谷的webpack文档</h3><p><img src="/./../img/image-20230322223954377.png" alt="image-20230322223954377"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20230322224039402.png" alt="image-20230322224039402"></p>
+<h4 id="本地地址"><a href="#本地地址" class="headerlink" title="本地地址"></a>本地地址</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/webpack5-docs/</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="/./../img/image-20230322224123767.png" alt="image-20230322224123767"></p>
+<h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">webpack_code # 项目根目录（所有指令必须在这个目录运行）</span><br><span class="line">    └── src # 项目源码目录</span><br><span class="line">        ├── js # js文件目录</span><br><span class="line">        │   ├── count.js</span><br><span class="line">        │   └── sum.js</span><br><span class="line">        └── main.js # 项目主文件，打包入口</span><br></pre></td></tr></table></figure>
+
+<h3 id="npx是个啥"><a href="#npx是个啥" class="headerlink" title="npx是个啥"></a>npx是个啥</h3><p>你执行完下面那个命令后，会在你的项目中生成一些包</p>
+<p><img src="/./../img/image-20230322235848123.png" alt="image-20230322235848123"></p>
+<p><img src="/./../img/image-20230322235917864.png" alt="image-20230322235917864"></p>
+<p>然后这个npx相当于自动给你配了一个环境变量，指向的是这个bin目录</p>
+<p><img src="/./../img/image-20230323000005971.png" alt="image-20230323000005971"></p>
+<p>npx webpack 就是调用里面那个webpack这个包</p>
+<p><img src="/./../img/image-20230323000117366.png" alt="image-20230323000117366"></p>
+<h3 id="打包css的webpack配置"><a href="#打包css的webpack配置" class="headerlink" title="打包css的webpack配置"></a>打包css的webpack配置</h3><p>具体操作看官网或者尚硅谷的那个文档</p>
+<p>这里先提醒一下，你需要下载两个loader，一个是cssloader 一个是style-loader(以后不知道要下多少个loader的时候，你就去看官网)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename:&#x27;main.js&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line">            </span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;], </span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [],</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js备份</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename: &quot;static/js/main.js&quot;, // 将 js 文件输出到 static/js 目录中</span><br><span class="line">        // 自动清空上一次打包的内容</span><br><span class="line">        // 原理:在打包前把path整个目录清空然后再打包</span><br><span class="line">        clean:true</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line">            </span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;], </span><br><span class="line">          &#125;,</span><br><span class="line">          // less相关的loader</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.less$/i,</span><br><span class="line">            use: [</span><br><span class="line">              // compiles Less to CSS</span><br><span class="line">              &quot;style-loader&quot;,</span><br><span class="line">              &quot;css-loader&quot;,</span><br><span class="line">              &quot;less-loader&quot;,</span><br><span class="line">            ],</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(png|jpe?g|gif|webp)$/,</span><br><span class="line">            type: &quot;asset&quot;,</span><br><span class="line">            parser: &#123;</span><br><span class="line">              dataUrlCondition: &#123;</span><br><span class="line">                maxSize: 10 * 1024, // 小于10kb的图片会被base64处理</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              // 将图片文件输出到 static/imgs 目录中</span><br><span class="line">              // 将图片文件命名 [hash:8][ext][query]</span><br><span class="line">              // [hash:8]: hash值取8位</span><br><span class="line">              // [ext]: 使用之前的文件扩展名</span><br><span class="line">              // [query]: 添加之前的query参数</span><br><span class="line">              filename: &quot;static/imgs/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(ttf|woff2?)$/,</span><br><span class="line">            type: &quot;asset/resource&quot;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              filename: &quot;static/media/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.js$/,</span><br><span class="line">            exclude: /node_modules/, // 排除node_modules代码不编译</span><br><span class="line">            loader: &quot;babel-loader&quot;,</span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [</span><br><span class="line">      new HtmlWebpackPlugin(&#123;</span><br><span class="line">        // 以 public/index.html 为模板创建文件</span><br><span class="line">        // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源</span><br><span class="line">        template: path.resolve(__dirname, &quot;public/index.html&quot;),</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">     // 开发服务器</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    host: &quot;localhost&quot;, // 启动服务器域名</span><br><span class="line">    port: &quot;3000&quot;, // 启动服务器端口号</span><br><span class="line">    open: true, // 是否自动打开浏览器</span><br><span class="line">  &#125;,</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="提取css成单独的文件"><a href="#提取css成单独的文件" class="headerlink" title="提取css成单独的文件"></a>提取css成单独的文件</h3><p>你跟着文档做完那些步骤后，npm run build之后，ta会打包一个独立的css文件，在你static文件夹下的css文件夹里的main.css</p>
+<p><img src="/./../img/image-20230328082604310.png" alt="image-20230328082604310"></p>
+<p>之所以会输出到这个文件夹是因为你下面的指令</p>
+<p><img src="/./../img/image-20230328082641527.png" alt="image-20230328082641527"></p>
+<center>webpack.prod.js</center>
+
+<p>你现在main.css是长这样</p>
+<p><img src="/./../img/image-20230328084207777.png" alt="image-20230328084207777"></p>
+<p>你要对它进行压缩</p>
+<p>按照文档的步骤去操作</p>
+<p><img src="/./../img/image-20230328084254241.png" alt="image-20230328084254241">‘</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>以后会用到的配置</title>
+    <url>/2023/03/15/%E4%BB%A5%E5%90%8E%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="转载别人文章的规范"><a href="#转载别人文章的规范" class="headerlink" title="转载别人文章的规范"></a>转载别人文章的规范</h3><h4 id="up的教程"><a href="#up的教程" class="headerlink" title="up的教程"></a>up的教程</h4><p><img src="/./../img/image-20230315152554412.png" alt="image-20230315152554412"></p>
+<h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><p><img src="/./../img/image-20230315152624239.png" alt="image-20230315152624239"></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright:  false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright _author: xxxx </span><br><span class="line">copyright_ author _href: https://xxxxxx.com </span><br><span class="line">copyright_ url: https://xxxxxx.com </span><br><span class="line">copyright _info: 此文章版权归xxxxx所有，如有转载，请注明来自原作者</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2023/04/23/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="…运算符复制对象"><a href="#…运算符复制对象" class="headerlink" title="…运算符复制对象"></a>…运算符复制对象</h3><p>首先先复习一下…运算符的基础语法</p>
+<p><img src="/./../img/image-20230423161320274.png" alt="image-20230423161320274"></p>
+<p>虽然我们不能用它展开对象，但是可以用它复制对象</p>
+<p><img src="/./../img/image-20230423161602110.png" alt="image-20230423161602110"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let car=&#123;</span><br><span class="line">      name:&#x27;benci&#x27;,</span><br><span class="line">      wheel:4</span><br><span class="line">    &#125;</span><br><span class="line">    let copyCar = &#123;...car&#125;</span><br><span class="line">    console.log(copyCar) // &#123;name:&#x27;benci&#x27;,wheel:4&#125;</span><br><span class="line"></span><br><span class="line">    copyCar.name = &#x27;aodi&#x27;</span><br><span class="line">    console.log(car.name) // benci</span><br></pre></td></tr></table></figure>
+
+<p>复制对象同时，修改它的属性</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let car=&#123;</span><br><span class="line">      name:&#x27;benci&#x27;,</span><br><span class="line">      wheel:4</span><br><span class="line">    &#125;</span><br><span class="line">    let copyCar = &#123;...car,name:&#x27;aodi&#x27;,price:1000&#125;</span><br><span class="line">    console.log(copyCar) //&#123; name: &#x27;aodi&#x27;, wheel: 4, price: 1000&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2023/03/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>-–</p>
+<p>title: 对象的拷贝</p>
+<p>date: 2023-03-20 12:37:36</p>
+<p>tags:</p>
+<p>-–</p>
+<h3 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h3><p><img src="/./../img/image-20230320103610460.png" alt="image-20230320103610460"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的引用赋值</span><br><span class="line">let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = info </span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // jams</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="对象的浅拷贝"><a href="#对象的浅拷贝" class="headerlink" title="对象的浅拷贝"></a>对象的浅拷贝</h3><p><img src="/./../img/image-20230320103450865.png" alt="image-20230320103450865"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的浅拷贝</span><br><span class="line">        let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // kobe</span><br></pre></td></tr></table></figure>
+
+<p>如果拷贝的对象里的属性中的值也是对象</p>
+<p><img src="/./../img/image-20230320111829811.png" alt="image-20230320111829811"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // jams</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象的深拷贝"><a href="#对象的深拷贝" class="headerlink" title="对象的深拷贝"></a>对象的深拷贝</h3><h4 id="原生实现"><a href="#原生实现" class="headerlink" title="原生实现"></a>原生实现</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = JSON.parse(JSON.stringify(info)) //json.stryingfy 将对象转化为字符串  json.parse 将字符串转化为对象</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // curry</span><br></pre></td></tr></table></figure>
+
+<h4 id="引入lodash第三方库实现"><a href="#引入lodash第三方库实现" class="headerlink" title="引入lodash第三方库实现"></a>引入lodash第三方库实现</h4>]]></content>
+  </entry>
+  <entry>
+    <title>我的第一个文章</title>
+    <url>/2023/03/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>function a(){    console.log(‘hello world’)}JavaScript</p>
 ]]></content>
   </entry>
   <entry>
