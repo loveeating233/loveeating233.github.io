@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>babel</title>
+    <url>/2023/03/24/babel/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="邂逅-babel"><a href="#邂逅-babel" class="headerlink" title="邂逅 babel"></a>邂逅 babel</h3><p>babel 刚开始就是用来将一些 es6 的 js 代码转化为 es5，因为有些老的浏览器不识别 es6 的 js 语法的。到了后来功能也就越来越强大了</p>
+<h3 id="bale-的安装"><a href="#bale-的安装" class="headerlink" title="bale 的安装"></a>bale 的安装</h3><p><img src="/./../img/image-20230324162943896.png" alt="image-20230324162943896"></p>
+<h3 id="babel-初体验"><a href="#babel-初体验" class="headerlink" title="babel 初体验"></a>babel 初体验</h3><p>我们需要把这个 test.js 的文件打包放到 dist 文件夹中</p>
+<p><img src="/./../img/image-20230324170116211.png" alt="image-20230324170116211"></p>
+<p>首先 我们需要下一个（插件）预设，这个预设里面集成了很多插件</p>
+<p><img src="/./../img/image-20230324170205978.png" alt="image-20230324170205978"></p>
+<blockquote>
+<p>你光下一个 babel 是打包不了的，还要借助各种各样的插件才可以打包</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install @babel/preset-env -D</span><br></pre></td></tr></table></figure>
+
+<p>开始打包文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx babel ./js/test.js --out-dir dist --presets=@babel/preset-env</span><br></pre></td></tr></table></figure>
+
+<p>这行命令的解释</p>
+<ul>
+<li><p>.&#x2F;js&#x2F;test.js: 源文件目录</p>
+</li>
+<li><p>--out-dir dist: 打包后要放入哪个文件夹</p>
+</li>
+<li><p>--presets&#x3D;@babel&#x2F;preset-env: 用的预设，可以有多个预设，每个预设之间用（？其实我现在也不知道多个预设之间用什么隔开）</p>
+</li>
+</ul>
+<p>你也可以这么写</p>
+]]></content>
+  </entry>
+  <entry>
     <title>git使用教程</title>
     <url>/2023/03/16/git%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="linux指令"><a href="#linux指令" class="headerlink" title="linux指令"></a>linux指令</h3><ul>
@@ -30,11 +59,16 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat testChanged.txt</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>vim [文件的url]<ul>
-<li>按 i 进入插入模式，进行文件的编辑</li>
-<li>按esc进行命令的执行（可用于退出插入模式）,然后按 :    (冒号)     才能进行命令的执行<ul>
-<li>q!      强制退出不保存</li>
-<li>wq    保存退出</li>
+<li><p>vim [文件的url]</p>
+<ul>
+<li><p>按 i 进入插入模式，进行文件的编辑</p>
+</li>
+<li><p>按esc进行命令的执行（可用于退出插入模式）,然后按 :    (冒号)     才能进行命令的执行</p>
+<ul>
+<li><p>q!      强制退出不保存</p>
+</li>
+<li><p>wq    保存退出</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -57,8 +91,6 @@
 <h4 id="简单提一下"><a href="#简单提一下" class="headerlink" title="简单提一下"></a>简单提一下</h4><p>就是你往git里面存东西(文件)，是以键值对的形式存在的。键就是git给你的hash，值就是你存的内容。然后你的数据是存放在objects文件夹里的，这个键值对的数据类型是一个bolb类型。这个键值对，就是一个git对象</p>
 <p><img src="/./../img/image-20230325160641080.png" alt="image-20230325160641080"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git hash-object -w ./test1.txt</span><br></pre></td></tr></table></figure>
-
-
 
 <p>你执行 git hash-object -w 文件路径的时候  它会给一个warning，不是错误，不理它</p>
 <p><img src="/./../img/image-20230325165121961.png" alt="image-20230325165121961"></p>
@@ -89,21 +121,21 @@
 <p>执行完这个命令自动把这个树对象提交到本地库中</p>
 <p><img src="/./../img/image-20230328181900006.png" alt="image-20230328181900006"></p>
 <h3 id="文件的四种状态"><a href="#文件的四种状态" class="headerlink" title="文件的四种状态"></a>文件的四种状态</h3><ul>
-<li>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.</li>
-<li>Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件</li>
-<li>Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !</li>
-<li>Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified</li>
+<li><p>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.</p>
+</li>
+<li><p>Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件</p>
+</li>
+<li><p>Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !</p>
+</li>
+<li><p>Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified</p>
+</li>
 </ul>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><img src="/./../img/image-20230321123952697.png" alt="image-20230321123952697"></p>
 <h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>查看文件状态</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 
-
-
 <h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p>将untracked的文件提交到暂存区</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add helloWorld.txt</span><br></pre></td></tr></table></figure>
-
-
 
 <p><img src="/./../img/image-20230320232428729.png" alt="image-20230320232428729"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rm --cached helloWorld.txt</span><br></pre></td></tr></table></figure>
@@ -117,27 +149,26 @@
 <h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等</p>
 <p>在主目录下建立”.gitignore”文件，此文件有如下规则：</p>
 <ol>
-<li>忽略文件中的空行或以井号（#）开始的行将会被忽略。</li>
-<li>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</li>
-<li>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</li>
-<li>如果名称的最前面是一个路径分隔符（&#x2F;），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</li>
-<li>如果名称的最后面是一个路径分隔符（&#x2F;），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</li>
+<li><p>忽略文件中的空行或以井号（#）开始的行将会被忽略。</p>
+</li>
+<li><p>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</p>
+</li>
+<li><p>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</p>
+</li>
+<li><p>如果名称的最前面是一个路径分隔符（&#x2F;），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</p>
+</li>
+<li><p>如果名称的最后面是一个路径分隔符（&#x2F;），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</p>
+</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#为注释</span><br><span class="line">*.txt        #忽略所有 .txt结尾的文件,这样的话上传就不会被选中！</span><br><span class="line">!lib.txt     #但lib.txt除外</span><br><span class="line">/temp        #仅忽略项目根目录下的TODO文件,不包括其它目录temp</span><br><span class="line">build/       #忽略build/目录下的所有文件</span><br><span class="line">doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span><br></pre></td></tr></table></figure>
 
 <h3 id="git-log-打印日志（历史记录）"><a href="#git-log-打印日志（历史记录）" class="headerlink" title="git log 打印日志（历史记录）"></a>git log 打印日志（历史记录）</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
-
-
 
 <p><img src="/./../img/image-20230321130539271.png" alt="image-20230321130539271"></p>
 <h4 id=""><a href="#" class="headerlink" title="."></a>.</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --pretty=oneline</span><br></pre></td></tr></table></figure>
 
 <p>比git log简介一些</p>
 <p><img src="/./../img/image-20230321130717321.png" alt="image-20230321130717321"></p>
-<hr></hr>
-
-
-
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
 
 <p><img src="/./../img/image-20230321131206608.png" alt="image-20230321131206608"></p>
@@ -146,8 +177,6 @@
 <p>git reset –hard [索引值]</p>
 <p><img src="/./../img/image-20230322181324393.png" alt="image-20230322181324393"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard 85e9180</span><br></pre></td></tr></table></figure>
-
-
 
 <h4 id="通过符号"><a href="#通过符号" class="headerlink" title="通过符号"></a>通过符号</h4><h5 id="后退"><a href="#后退" class="headerlink" title="后退"></a>后退</h5><h6 id="通过异或符号"><a href="#通过异或符号" class="headerlink" title="通过异或符号"></a>通过异或符号</h6><p><img src="/./../img/image-20230322181644345.png" alt="image-20230322181644345"></p>
 <p>但是如果要退十几个版本，总不可能写十几个异或符号吧，所以有更简便的方法</p>
@@ -159,8 +188,6 @@
 <h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><img src="/./../img/image-20230324233645904.png" alt="image-20230324233645904"></p>
 <p>hot_fix:热修复</p>
 <h4 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h4><h5 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
-
-
 
 <p>可以看到我当前只有一个主分支</p>
 <p><img src="/./../img/image-20230325100640360.png" alt="image-20230325100640360"></p>
@@ -375,7 +402,7 @@
 <blockquote>
 <p> 全局安装的命令是不受工作目录的影响的</p>
 </blockquote>
-<p> 这个nodemon包的作用就是重启服务器：就是你改了你的服务端代码后，按照以前你还得重新node [文件名]</p>
+<h3 id="nodemon"><a href="#nodemon" class="headerlink" title="nodemon"></a>nodemon</h3><p>这个nodemon包的作用就是重启服务器：就是你改了你的服务端代码后，按照以前你还得重新node [文件名]</p>
 <p>现在你只需要nodemon [文件名] 之后，你只要修改了代码，就会自动帮你重启服务器</p>
 <h3 id="npm-i-的使用场景"><a href="#npm-i-的使用场景" class="headerlink" title="npm i 的使用场景"></a>npm i 的使用场景</h3><p>因为你的 node_modules不会被版本库保管（毕竟太大了）当你要把远程库的代码拉下来，你是不能运行的，你需要下载那些依赖，所以你需要npm i 一下，就会自动把那些依赖下载下来</p>
 <hr></hr>
@@ -488,41 +515,41 @@
 ]]></content>
   </entry>
   <entry>
-    <title>babel</title>
-    <url>/2023/03/24/babel/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="邂逅-babel"><a href="#邂逅-babel" class="headerlink" title="邂逅 babel"></a>邂逅 babel</h3><p>babel 刚开始就是用来将一些 es6 的 js 代码转化为 es5，因为有些老的浏览器不识别 es6 的 js 语法的。到了后来功能也就越来越强大了</p>
-<h3 id="bale-的安装"><a href="#bale-的安装" class="headerlink" title="bale 的安装"></a>bale 的安装</h3><p><img src="/./../img/image-20230324162943896.png" alt="image-20230324162943896"></p>
-<h3 id="babel-初体验"><a href="#babel-初体验" class="headerlink" title="babel 初体验"></a>babel 初体验</h3><p>我们需要把这个 test.js 的文件打包放到 dist 文件夹中</p>
-<p><img src="/./../img/image-20230324170116211.png" alt="image-20230324170116211"></p>
-<p>首先 我们需要下一个（插件）预设，这个预设里面集成了很多插件</p>
-<p><img src="/./../img/image-20230324170205978.png" alt="image-20230324170205978"></p>
+    <title>this 指向</title>
+    <url>/2023/03/17/this%E6%8C%87%E5%90%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="默认绑定规则：window"><a href="#默认绑定规则：window" class="headerlink" title="默认绑定规则：window"></a>默认绑定规则：window</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span> === <span class="variable language_">window</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函数的独立调用：window"><a href="#函数的独立调用：window" class="headerlink" title="函数的独立调用：window"></a>函数的独立调用：window</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>(); <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+
+<p>你可以理解为 window.test()</p>
+<h4 id="立即执行函数：-window"><a href="#立即执行函数：-window" class="headerlink" title="立即执行函数： window"></a>立即执行函数： window</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// window</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>你光下一个 babel 是打包不了的，还要借助各种各样的插件才可以打包</p>
+<p>在浏览器环境中，立即执行函数的 this 指向 window。可能以后在模块中指向的是模块中的环境.如果换一个环境，它指向的是相应的全局对象</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install @babel/preset-env -D</span><br></pre></td></tr></table></figure>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 闭包：函数嵌套函数，内部函数就是闭包</span></span><br><span class="line"><span class="comment">// 内部函数没有执行完，外部函数的变量不会被销毁</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">outfun</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">inerfun</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">//1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> inerfun;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="title function_">outfun</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">b</span>(); <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
 
-<p>开始打包文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx babel ./js/test.js --out-dir dist --presets=@babel/preset-env</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>你可以理解为是函数独立调用</p>
+</blockquote>
+<h2 id="隐式绑定：谁调用，this-指向谁"><a href="#隐式绑定：谁调用，this-指向谁" class="headerlink" title="隐式绑定：谁调用，this 指向谁"></a>隐式绑定：谁调用，this 指向谁</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">obj.<span class="title function_">b</span>(); <span class="comment">// this指向obj这个对象</span></span><br></pre></td></tr></table></figure>
 
-<p>这行命令的解释</p>
-<ul>
-<li><p>.&#x2F;js&#x2F;test.js: 源文件目录</p>
-</li>
-<li><p>--out-dir dist: 打包后要放入哪个文件夹</p>
-</li>
-<li><p>--presets&#x3D;@babel&#x2F;preset-env: 用的预设，可以有多个预设，每个预设之间用（？其实我现在也不知道多个预设之间用什么隔开）</p>
-</li>
-</ul>
-<p>你也可以这么写</p>
+<p>只有函数执行，里面的 this 才有指向，函数不执行，里面的 this 毫无意义。</p>
+<p>下图中，这两个 this 是不一样的。每一个函数的执行都会有一个自身的 this 指向，虽然可能它们指向的是同一个东西，但每个 this 本身是不一样的</p>
+<p>上面一个 this 是 obj，因为是 obj 调用</p>
+<p>下面一个是 window，因为自调用(函数独立调用)</p>
+<p><img src="/./../img/image-20230317104206653.png" alt="image-20230317104206653"></p>
+<p>看一道题目</p>
+<p><img src="/./../img/image-20230317153545250.png" alt="image-20230317153545250"></p>
+<blockquote>
+<p>函数中的 this 只有函数被调用的时候，才会有指向，因为是 obj 调用的，所以 this 的指向是 obj</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">            console.log(this)</span><br><span class="line">        &#125;</span><br><span class="line">        let obj=&#123;</span><br><span class="line">            a:1,</span><br><span class="line">            foo:foo</span><br><span class="line">        &#125;</span><br><span class="line">        let bar = obj.foo</span><br><span class="line">        bar() // window</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>调用,所以是 window</p>
+</blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>promise</title>
-    <url>/2023/04/28/promise/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>详见</p>
-<p><a href="https://www.yuque.com/wanfeng-uqsak/alyy23/ri5217#%20%E3%80%8APromise%E3%80%8B">promise 文档</a></p>
-<p>async</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">async function test()&#123;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      let a = test()// 这个函数返回值是promise 状态是fullfied</span><br><span class="line">      console.log(a)</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>todoList</title>
@@ -587,41 +614,65 @@
 ]]></content>
   </entry>
   <entry>
-    <title>this 指向</title>
-    <url>/2023/03/17/this%E6%8C%87%E5%90%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="默认绑定规则：window"><a href="#默认绑定规则：window" class="headerlink" title="默认绑定规则：window"></a>默认绑定规则：window</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span> === <span class="variable language_">window</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+    <title>webpack</title>
+    <url>/2023/03/21/webpack/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h3><p><img src="/./../img/image-20230321212532898.png" alt="image-20230321212532898"></p>
+<p>就是 ts，less，sass，你的浏览器识别不了，但是这些语言却能提高代码的编写效率还有什么健壮性啊等等，所以我们需要用打包工具将这些浏览器识别不了的语言打包成浏览器可以识别的</p>
+<p>大概思路：（具体去见视频）</p>
+<p>就是你通过打包命令，将 js 进行处理，然后放到了一个 dist 文件夹里（里面管静态资源的）。</p>
+<p>你要给你的 webpack 进行配置，配置文件里写 ta 打包的入口文件，然后会根据入口文件的依赖来打包所需的文件，然后你也可以指定输出的文件夹，默认是 dist。然后在你的 html 引入打包后的文件</p>
+<p>但是，webpack 默认是不能打包 css 还有 md 等其他文件，你就需要下载 loader 了。</p>
+<p>比如你要打包 css 文件，你要下载 css loader，你 npm 下载后，你要使用这个 loader，你可以有很多种方式，常用的就是下面这种方式，</p>
+<p><img src="/./../img/image-20230322102305412.png" alt="image-20230322102305412"></p>
+<p>但是你还需要下一个 style loader，用于将你打包后的 css 文件插入 html 中</p>
+<p>对 less 文件进行打包</p>
+<p>你需要借助 lessc 将 less 文件，转换为 css 文件。这个 lessc 与 webpack 没什么关系，是一个独立的工具</p>
+<p><img src="/./../img/image-20230322104049940.png" alt="image-20230322104049940"></p>
+<p><img src="/./../img/image-20230322104114070.png" alt="image-20230322104114070"></p>
+<p>你要用 lessloader 必须下 lessc，因为 less loader 是依赖 lessc 的</p>
+<h3 id="打开尚硅谷的-webpack-文档"><a href="#打开尚硅谷的-webpack-文档" class="headerlink" title="打开尚硅谷的 webpack 文档"></a>打开尚硅谷的 webpack 文档</h3><p><img src="/./../img/image-20230322223954377.png" alt="image-20230322223954377"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 
-<h3 id="函数的独立调用：window"><a href="#函数的独立调用：window" class="headerlink" title="函数的独立调用：window"></a>函数的独立调用：window</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>(); <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+<p><img src="/./../img/image-20230322224039402.png" alt="image-20230322224039402"></p>
+<h4 id="本地地址"><a href="#本地地址" class="headerlink" title="本地地址"></a>本地地址</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/webpack5-docs/</span><br></pre></td></tr></table></figure>
 
-<p>你可以理解为 window.test()</p>
-<h4 id="立即执行函数：-window"><a href="#立即执行函数：-window" class="headerlink" title="立即执行函数： window"></a>立即执行函数： window</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// window</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<p><img src="/./../img/image-20230322224123767.png" alt="image-20230322224123767"></p>
+<h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">webpack_code # 项目根目录（所有指令必须在这个目录运行）</span><br><span class="line">    └── src # 项目源码目录</span><br><span class="line">        ├── js # js文件目录</span><br><span class="line">        │   ├── count.js</span><br><span class="line">        │   └── sum.js</span><br><span class="line">        └── main.js # 项目主文件，打包入口</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>在浏览器环境中，立即执行函数的 this 指向 window。可能以后在模块中指向的是模块中的环境.如果换一个环境，它指向的是相应的全局对象</p>
-</blockquote>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 闭包：函数嵌套函数，内部函数就是闭包</span></span><br><span class="line"><span class="comment">// 内部函数没有执行完，外部函数的变量不会被销毁</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">outfun</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">inerfun</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">//1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> inerfun;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="title function_">outfun</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">b</span>(); <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+<h3 id="npx-是个啥"><a href="#npx-是个啥" class="headerlink" title="npx 是个啥"></a>npx 是个啥</h3><p>你执行完下面那个命令后，会在你的项目中生成一些包</p>
+<p><img src="/./../img/image-20230322235848123.png" alt="image-20230322235848123"></p>
+<p><img src="/./../img/image-20230322235917864.png" alt="image-20230322235917864"></p>
+<p>然后这个 npx 相当于自动给你配了一个环境变量，指向的是这个 bin 目录</p>
+<p><img src="/./../img/image-20230323000005971.png" alt="image-20230323000005971"></p>
+<p>npx webpack 就是调用里面那个 webpack 这个包</p>
+<p><img src="/./../img/image-20230323000117366.png" alt="image-20230323000117366"></p>
+<h3 id="打包-css-的-webpack-配置"><a href="#打包-css-的-webpack-配置" class="headerlink" title="打包 css 的 webpack 配置"></a>打包 css 的 webpack 配置</h3><p>具体操作看官网或者尚硅谷的那个文档</p>
+<p>这里先提醒一下，你需要下载两个 loader，一个是 cssloader 一个是 style-loader(以后不知道要下多少个 loader 的时候，你就去看官网)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename:&#x27;main.js&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line"></span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;],</span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [],</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>你可以理解为是函数独立调用</p>
-</blockquote>
-<h2 id="隐式绑定：谁调用，this-指向谁"><a href="#隐式绑定：谁调用，this-指向谁" class="headerlink" title="隐式绑定：谁调用，this 指向谁"></a>隐式绑定：谁调用，this 指向谁</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">obj.<span class="title function_">b</span>(); <span class="comment">// this指向obj这个对象</span></span><br></pre></td></tr></table></figure>
+<p>webpack.config.js 备份</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename: &quot;static/js/main.js&quot;, // 将 js 文件输出到 static/js 目录中</span><br><span class="line">        // 自动清空上一次打包的内容</span><br><span class="line">        // 原理:在打包前把path整个目录清空然后再打包</span><br><span class="line">        clean:true</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line"></span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;],</span><br><span class="line">          &#125;,</span><br><span class="line">          // less相关的loader</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.less$/i,</span><br><span class="line">            use: [</span><br><span class="line">              // compiles Less to CSS</span><br><span class="line">              &quot;style-loader&quot;,</span><br><span class="line">              &quot;css-loader&quot;,</span><br><span class="line">              &quot;less-loader&quot;,</span><br><span class="line">            ],</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(png|jpe?g|gif|webp)$/,</span><br><span class="line">            type: &quot;asset&quot;,</span><br><span class="line">            parser: &#123;</span><br><span class="line">              dataUrlCondition: &#123;</span><br><span class="line">                maxSize: 10 * 1024, // 小于10kb的图片会被base64处理</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              // 将图片文件输出到 static/imgs 目录中</span><br><span class="line">              // 将图片文件命名 [hash:8][ext][query]</span><br><span class="line">              // [hash:8]: hash值取8位</span><br><span class="line">              // [ext]: 使用之前的文件扩展名</span><br><span class="line">              // [query]: 添加之前的query参数</span><br><span class="line">              filename: &quot;static/imgs/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(ttf|woff2?)$/,</span><br><span class="line">            type: &quot;asset/resource&quot;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              filename: &quot;static/media/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.js$/,</span><br><span class="line">            exclude: /node_modules/, // 排除node_modules代码不编译</span><br><span class="line">            loader: &quot;babel-loader&quot;,</span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [</span><br><span class="line">      new HtmlWebpackPlugin(&#123;</span><br><span class="line">        // 以 public/index.html 为模板创建文件</span><br><span class="line">        // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源</span><br><span class="line">        template: path.resolve(__dirname, &quot;public/index.html&quot;),</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">     // 开发服务器</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    host: &quot;localhost&quot;, // 启动服务器域名</span><br><span class="line">    port: &quot;3000&quot;, // 启动服务器端口号</span><br><span class="line">    open: true, // 是否自动打开浏览器</span><br><span class="line">  &#125;,</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
 
-<p>只有函数执行，里面的 this 才有指向，函数不执行，里面的 this 毫无意义。</p>
-<p>下图中，这两个 this 是不一样的。每一个函数的执行都会有一个自身的 this 指向，虽然可能它们指向的是同一个东西，但每个 this 本身是不一样的</p>
-<p>上面一个 this 是 obj，因为是 obj 调用</p>
-<p>下面一个是 window，因为自调用(函数独立调用)</p>
-<p><img src="/./../img/image-20230317104206653.png" alt="image-20230317104206653"></p>
-<p>看一道题目</p>
-<p><img src="/./../img/image-20230317153545250.png" alt="image-20230317153545250"></p>
-<blockquote>
-<p>函数中的 this 只有函数被调用的时候，才会有指向，因为是 obj 调用的，所以 this 的指向是 obj</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">            console.log(this)</span><br><span class="line">        &#125;</span><br><span class="line">        let obj=&#123;</span><br><span class="line">            a:1,</span><br><span class="line">            foo:foo</span><br><span class="line">        &#125;</span><br><span class="line">        let bar = obj.foo</span><br><span class="line">        bar() // window</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>调用,所以是 window</p>
-</blockquote>
+<h3 id="提取-css-成单独的文件"><a href="#提取-css-成单独的文件" class="headerlink" title="提取 css 成单独的文件"></a>提取 css 成单独的文件</h3><p>你跟着文档做完那些步骤后，npm run build 之后，ta 会打包一个独立的 css 文件，在你 static 文件夹下的 css 文件夹里的 main.css</p>
+<p><img src="/./../img/image-20230328082604310.png" alt="image-20230328082604310"></p>
+<p>之所以会输出到这个文件夹是因为你下面的指令</p>
+<p><img src="/./../img/image-20230328082641527.png" alt="image-20230328082641527"></p>
+<p>你现在 main.css 是长这样</p>
+<p><img src="/./../img/image-20230328084207777.png" alt="image-20230328084207777"></p>
+<p>你要对它进行压缩</p>
+<p>按照文档的步骤去操作</p>
+<p><img src="/./../img/image-20230328084254241.png" alt="image-20230328084254241">‘</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>以后会用到的配置</title>
+    <url>/2023/03/15/%E4%BB%A5%E5%90%8E%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="转载别人文章的规范"><a href="#转载别人文章的规范" class="headerlink" title="转载别人文章的规范"></a>转载别人文章的规范</h3><h4 id="up的教程"><a href="#up的教程" class="headerlink" title="up的教程"></a>up的教程</h4><p><img src="/./../img/image-20230315152554412.png" alt="image-20230315152554412"></p>
+<h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><p><img src="/./../img/image-20230315152624239.png" alt="image-20230315152624239"></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright:  false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright _author: xxxx </span><br><span class="line">copyright_ author _href: https://xxxxxx.com </span><br><span class="line">copyright_ url: https://xxxxxx.com </span><br><span class="line">copyright _info: 此文章版权归xxxxx所有，如有转载，请注明来自原作者</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>vue3</title>
@@ -729,56 +780,21 @@
 ]]></content>
   </entry>
   <entry>
-    <title>webpack</title>
-    <url>/2023/03/21/webpack/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="大概思路"><a href="#大概思路" class="headerlink" title="大概思路"></a>大概思路</h3><p><img src="/./../img/image-20230321212532898.png" alt="image-20230321212532898"></p>
-<p>就是 ts，less，sass，你的浏览器识别不了，但是这些语言却能提高代码的编写效率还有什么健壮性啊等等，所以我们需要用打包工具将这些浏览器识别不了的语言打包成浏览器可以识别的</p>
-<p>大概思路：（具体去见视频）</p>
-<p>就是你通过打包命令，将 js 进行处理，然后放到了一个 dist 文件夹里（里面管静态资源的）。</p>
-<p>你要给你的 webpack 进行配置，配置文件里写 ta 打包的入口文件，然后会根据入口文件的依赖来打包所需的文件，然后你也可以指定输出的文件夹，默认是 dist。然后在你的 html 引入打包后的文件</p>
-<p>但是，webpack 默认是不能打包 css 还有 md 等其他文件，你就需要下载 loader 了。</p>
-<p>比如你要打包 css 文件，你要下载 css loader，你 npm 下载后，你要使用这个 loader，你可以有很多种方式，常用的就是下面这种方式，</p>
-<p><img src="/./../img/image-20230322102305412.png" alt="image-20230322102305412"></p>
-<p>但是你还需要下一个 style loader，用于将你打包后的 css 文件插入 html 中</p>
-<p>对 less 文件进行打包</p>
-<p>你需要借助 lessc 将 less 文件，转换为 css 文件。这个 lessc 与 webpack 没什么关系，是一个独立的工具</p>
-<p><img src="/./../img/image-20230322104049940.png" alt="image-20230322104049940"></p>
-<p><img src="/./../img/image-20230322104114070.png" alt="image-20230322104114070"></p>
-<p>你要用 lessloader 必须下 lessc，因为 less loader 是依赖 lessc 的</p>
-<h3 id="打开尚硅谷的-webpack-文档"><a href="#打开尚硅谷的-webpack-文档" class="headerlink" title="打开尚硅谷的 webpack 文档"></a>打开尚硅谷的 webpack 文档</h3><p><img src="/./../img/image-20230322223954377.png" alt="image-20230322223954377"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+    <title>对象的拷贝</title>
+    <url>/2023/03/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h3><p><img src="/./../img/image-20230320103610460.png" alt="image-20230320103610460"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的引用赋值</span><br><span class="line">let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = info</span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // jams</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./../img/image-20230322224039402.png" alt="image-20230322224039402"></p>
-<h4 id="本地地址"><a href="#本地地址" class="headerlink" title="本地地址"></a>本地地址</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/webpack5-docs/</span><br></pre></td></tr></table></figure>
+<h3 id="对象的浅拷贝"><a href="#对象的浅拷贝" class="headerlink" title="对象的浅拷贝"></a>对象的浅拷贝</h3><p><img src="/./../img/image-20230320103450865.png" alt="image-20230320103450865"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的浅拷贝</span><br><span class="line">        let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // kobe</span><br></pre></td></tr></table></figure>
 
-<p>效果</p>
-<p><img src="/./../img/image-20230322224123767.png" alt="image-20230322224123767"></p>
-<h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">webpack_code # 项目根目录（所有指令必须在这个目录运行）</span><br><span class="line">    └── src # 项目源码目录</span><br><span class="line">        ├── js # js文件目录</span><br><span class="line">        │   ├── count.js</span><br><span class="line">        │   └── sum.js</span><br><span class="line">        └── main.js # 项目主文件，打包入口</span><br></pre></td></tr></table></figure>
+<p>如果拷贝的对象里的属性中的值也是对象</p>
+<p><img src="/./../img/image-20230320111829811.png" alt="image-20230320111829811"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // jams</span><br></pre></td></tr></table></figure>
 
-<h3 id="npx-是个啥"><a href="#npx-是个啥" class="headerlink" title="npx 是个啥"></a>npx 是个啥</h3><p>你执行完下面那个命令后，会在你的项目中生成一些包</p>
-<p><img src="/./../img/image-20230322235848123.png" alt="image-20230322235848123"></p>
-<p><img src="/./../img/image-20230322235917864.png" alt="image-20230322235917864"></p>
-<p>然后这个 npx 相当于自动给你配了一个环境变量，指向的是这个 bin 目录</p>
-<p><img src="/./../img/image-20230323000005971.png" alt="image-20230323000005971"></p>
-<p>npx webpack 就是调用里面那个 webpack 这个包</p>
-<p><img src="/./../img/image-20230323000117366.png" alt="image-20230323000117366"></p>
-<h3 id="打包-css-的-webpack-配置"><a href="#打包-css-的-webpack-配置" class="headerlink" title="打包 css 的 webpack 配置"></a>打包 css 的 webpack 配置</h3><p>具体操作看官网或者尚硅谷的那个文档</p>
-<p>这里先提醒一下，你需要下载两个 loader，一个是 cssloader 一个是 style-loader(以后不知道要下多少个 loader 的时候，你就去看官网)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename:&#x27;main.js&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line"></span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;],</span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [],</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="对象的深拷贝"><a href="#对象的深拷贝" class="headerlink" title="对象的深拷贝"></a>对象的深拷贝</h3><h4 id="原生实现"><a href="#原生实现" class="headerlink" title="原生实现"></a>原生实现</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = JSON.parse(JSON.stringify(info)) //json.stryingfy 将对象转化为字符串  json.parse 将字符串转化为对象</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // curry</span><br></pre></td></tr></table></figure>
 
-<p>webpack.config.js 备份</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 入口</span><br><span class="line">    entry: &quot;./src/main.js&quot;,</span><br><span class="line">    // 输出</span><br><span class="line">    output: &#123;</span><br><span class="line">        // 这里要写绝对路径</span><br><span class="line">        // __dirname：当前文件所在目录</span><br><span class="line">        path: path.resolve(__dirname,&#x27;dist&#x27;), // 放到当前文件所在目录文件夹下的dist文件夹</span><br><span class="line">        filename: &quot;static/js/main.js&quot;, // 将 js 文件输出到 static/js 目录中</span><br><span class="line">        // 自动清空上一次打包的内容</span><br><span class="line">        // 原理:在打包前把path整个目录清空然后再打包</span><br><span class="line">        clean:true</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 加载器</span><br><span class="line">    module: &#123;</span><br><span class="line">        // loader的配置</span><br><span class="line">      rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: /\.css$/i,</span><br><span class="line">            // use的执行顺序:后面的先执行</span><br><span class="line">            // cssloader作用:将css资源编译成common.js到js中</span><br><span class="line">            // styleloader的作用:动态创建一个 Style 标签,将js中的css放入style标签中，再放入html</span><br><span class="line">            // 用人话说就是 cssloader将css编译打包到js中，styleloader把打包好的css代码从js中放到html的style标签中</span><br><span class="line"></span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;],</span><br><span class="line">          &#125;,</span><br><span class="line">          // less相关的loader</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.less$/i,</span><br><span class="line">            use: [</span><br><span class="line">              // compiles Less to CSS</span><br><span class="line">              &quot;style-loader&quot;,</span><br><span class="line">              &quot;css-loader&quot;,</span><br><span class="line">              &quot;less-loader&quot;,</span><br><span class="line">            ],</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(png|jpe?g|gif|webp)$/,</span><br><span class="line">            type: &quot;asset&quot;,</span><br><span class="line">            parser: &#123;</span><br><span class="line">              dataUrlCondition: &#123;</span><br><span class="line">                maxSize: 10 * 1024, // 小于10kb的图片会被base64处理</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              // 将图片文件输出到 static/imgs 目录中</span><br><span class="line">              // 将图片文件命名 [hash:8][ext][query]</span><br><span class="line">              // [hash:8]: hash值取8位</span><br><span class="line">              // [ext]: 使用之前的文件扩展名</span><br><span class="line">              // [query]: 添加之前的query参数</span><br><span class="line">              filename: &quot;static/imgs/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.(ttf|woff2?)$/,</span><br><span class="line">            type: &quot;asset/resource&quot;,</span><br><span class="line">            generator: &#123;</span><br><span class="line">              filename: &quot;static/media/[hash:8][ext][query]&quot;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.js$/,</span><br><span class="line">            exclude: /node_modules/, // 排除node_modules代码不编译</span><br><span class="line">            loader: &quot;babel-loader&quot;,</span><br><span class="line">          &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 插件</span><br><span class="line">    plugins: [</span><br><span class="line">      new HtmlWebpackPlugin(&#123;</span><br><span class="line">        // 以 public/index.html 为模板创建文件</span><br><span class="line">        // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源</span><br><span class="line">        template: path.resolve(__dirname, &quot;public/index.html&quot;),</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">     // 开发服务器</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    host: &quot;localhost&quot;, // 启动服务器域名</span><br><span class="line">    port: &quot;3000&quot;, // 启动服务器端口号</span><br><span class="line">    open: true, // 是否自动打开浏览器</span><br><span class="line">  &#125;,</span><br><span class="line">    // 模式</span><br><span class="line">    mode: &quot;development&quot;,</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="提取-css-成单独的文件"><a href="#提取-css-成单独的文件" class="headerlink" title="提取 css 成单独的文件"></a>提取 css 成单独的文件</h3><p>你跟着文档做完那些步骤后，npm run build 之后，ta 会打包一个独立的 css 文件，在你 static 文件夹下的 css 文件夹里的 main.css</p>
-<p><img src="/./../img/image-20230328082604310.png" alt="image-20230328082604310"></p>
-<p>之所以会输出到这个文件夹是因为你下面的指令</p>
-<p><img src="/./../img/image-20230328082641527.png" alt="image-20230328082641527"></p>
-<p>你现在 main.css 是长这样</p>
-<p><img src="/./../img/image-20230328084207777.png" alt="image-20230328084207777"></p>
-<p>你要对它进行压缩</p>
-<p>按照文档的步骤去操作</p>
-<p><img src="/./../img/image-20230328084254241.png" alt="image-20230328084254241">‘</p>
-]]></content>
+<h4 id="引入-lodash-第三方库实现"><a href="#引入-lodash-第三方库实现" class="headerlink" title="引入 lodash 第三方库实现"></a>引入 lodash 第三方库实现</h4>]]></content>
   </entry>
   <entry>
     <title>奇技淫巧</title>
@@ -792,7 +808,35 @@
 <p>复制对象同时，修改它的属性</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let car=&#123;</span><br><span class="line">      name:&#x27;benci&#x27;,</span><br><span class="line">      wheel:4</span><br><span class="line">    &#125;</span><br><span class="line">    let copyCar = &#123;...car,name:&#x27;aodi&#x27;,price:1000&#125;</span><br><span class="line">    console.log(copyCar) //&#123; name: &#x27;aodi&#x27;, wheel: 4, price: 1000&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="？．语法"><a href="#？．语法" class="headerlink" title="？．语法"></a>？．语法</h3><h2 id="项目相关"><a href="#项目相关" class="headerlink" title="项目相关"></a>项目相关</h2><h3 id="好用的normalize-css"><a href="#好用的normalize-css" class="headerlink" title="好用的normalize.css"></a>好用的normalize.css</h3><p><a href="https://github.com/necolas/normalize.css">normalize.css github仓库地址</a></p>
+<h3 id="？．语法"><a href="#？．语法" class="headerlink" title="？．语法"></a>？．语法</h3><h2 id="项目相关"><a href="#项目相关" class="headerlink" title="项目相关"></a>项目相关</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="github搜索案例"><a href="#github搜索案例" class="headerlink" title="github搜索案例"></a>github搜索案例</h4><h5 id="小bug"><a href="#小bug" class="headerlink" title="小bug"></a>小bug</h5><p>在react里    {}里面不能写对象</p>
+<p>例如</p>
+<p><img src="/./../img/image-20230531202321784.png" alt="image-20230531202321784"></p>
+<p><img src="/./../img/image-20230531202327599.png" alt="image-20230531202327599"></p>
+<p>所以  这个地方你要特别注意</p>
+<p>必须写  err: err.message  不能只写  err:err</p>
+<p>不然react渲染不出来</p>
+<p><img src="/./../img/image-20230531202518430.png" alt="image-20230531202518430"></p>
+<h5 id="巧用三元运算符"><a href="#巧用三元运算符" class="headerlink" title="巧用三元运算符"></a>巧用三元运算符</h5><p><img src="/./../img/image-20230531202852270.png" alt="image-20230531202852270"></p>
+<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p><strong>路由跳转</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#123;useRouter&#125; from &#x27;vue-router&#x27;</span><br><span class="line">let $router = useRouter()</span><br><span class="line">function cardClick(item)&#123;</span><br><span class="line">    $router.push(&#123;</span><br><span class="line">        path:&#x27;/hospital/register&#x27;,</span><br><span class="line">        query:&#123;</span><br><span class="line">            hoscode:item.hoscode</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>获取当前路由信息</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#123;useRouter,useRoute&#125; from &#x27;vue-router&#x27;</span><br><span class="line">let $route = useRoute()</span><br><span class="line">console.log($route.path)</span><br><span class="line">function changeMenuItem(path) &#123;</span><br><span class="line">  $router.push(</span><br><span class="line">    &#123;</span><br><span class="line">      path:path,</span><br><span class="line">      query:&#123;</span><br><span class="line">        hoscode:$route.query.hoscode</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>路由懒加载</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">            path:&#x27;/&#x27;,</span><br><span class="line">            name:&#x27;index&#x27;,</span><br><span class="line">            component:()=&gt;import(&#x27;../components/index.vue&#x27;),</span><br><span class="line">            redirect:&#x27;/wall&#x27;,</span><br><span class="line">            children:[</span><br><span class="line">                &#123;</span><br><span class="line">                    path:&#x27;wall&#x27;,</span><br><span class="line">                    component:()=&gt;import(&#x27;../components/wall/wall.vue&#x27;)</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="promise基本"><a href="#promise基本" class="headerlink" title="promise基本"></a>promise基本</h3><p><strong>async  await 项目中常用连招</strong></p>
+<p><img src="/./../img/image-20230811120629012.png" alt="image-20230811120629012"></p>
+<p><img src="/./../img/image-20230811120738913.png" alt="image-20230811120738913"></p>
+<p>使用</p>
+<p><img src="/./../img/image-20230811120755846.png" alt="image-20230811120755846"></p>
+<h3 id="axios二次封装"><a href="#axios二次封装" class="headerlink" title="axios二次封装"></a>axios二次封装</h3><p>第一步下载</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i axios</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么要对axios进行二次封装</strong></p>
+<p><img src="/./../img/image-20230723172314366.png" alt="image-20230723172314366"></p>
+<h3 id="好用的normalize-css"><a href="#好用的normalize-css" class="headerlink" title="好用的normalize.css"></a>好用的normalize.css</h3><p><a href="https://github.com/necolas/normalize.css">normalize.css github仓库地址</a></p>
 <p>这个包就是用来做样式初始化的</p>
 <p>在你的项目根目录下</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save normalize.css</span><br></pre></td></tr></table></figure>
@@ -801,6 +845,12 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &quot;normalize.css&quot;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/./../img/image-20230424223229008.png" alt="image-20230424223229008"></p>
+<h3 id="脚手架中使用less全局变量"><a href="#脚手架中使用less全局变量" class="headerlink" title="脚手架中使用less全局变量"></a>脚手架中使用less全局变量</h3><p>详细配置见下面文章</p>
+<p><a href="https://blog.csdn.net/ATTK_Time/article/details/125055868">文章</a></p>
+<p>使用</p>
+<p><img src="/./../img/image-20230517183720392.png" alt="image-20230517183720392"></p>
+<p>或者 可以使用给root里写全局变量  还不用配置</p>
+<p><img src="/./../img/image-20230517184057232.png" alt="image-20230517184057232"></p>
 <h3 id="deep-class-的用法"><a href="#deep-class-的用法" class="headerlink" title=":deep(.class)的用法"></a>:deep(.class)的用法</h3><p><img src="/./../img/image-20230426111744520.png" alt="image-20230426111744520"></p>
 <h3 id="隐藏tabbar"><a href="#隐藏tabbar" class="headerlink" title="隐藏tabbar"></a>隐藏tabbar</h3><p>需求：</p>
 <p>有时候这块区域在某些页面的时候，是要被隐藏掉的</p>
@@ -817,34 +867,65 @@
 </blockquote>
 <p>别的组件要用的时候，就引入</p>
 <p><img src="/./../img/image-20230426231051162.png" alt="image-20230426231051162"></p>
-<h2 id="常用封转"><a href="#常用封转" class="headerlink" title="常用封转"></a>常用封转</h2><h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><p>通过传入的时间戳，返回几月几号</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let d = Date.now();</span><br><span class="line"></span><br><span class="line">function getDate(timestamp) &#123;</span><br><span class="line">  const date = new Date(timestamp);</span><br><span class="line">  const month = (date.getMonth() + 1).toString().padStart(2, &quot;0&quot;);</span><br><span class="line">  const day = date.getDate().toString().padStart(2, &quot;0&quot;);</span><br><span class="line">  return `$&#123;month&#125;月$&#123;day&#125;日`;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let datenow = getDate(d);</span><br><span class="line">console.log(datenow);  </span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="kepp-alive应用"><a href="#kepp-alive应用" class="headerlink" title="kepp-alive应用"></a>kepp-alive应用</h3><p>因为home页面会被经常使用，里面又有很多网络请求，所以我们不希望我们切换路由时频繁将home组件卸载掉，我们希望在切换路由时，home组件还能保存下来，这时 我们就要用到keep-alive</p>
+<p><img src="/./../img/image-20230515154802360.png" alt="image-20230515154802360"></p>
+<p><img src="/./../img/image-20230515155134653.png" alt="image-20230515155134653"></p>
+<p>vue引入图片</p>
+<p><img src="/./../img/image-20230527145609665.png" alt="image-20230527145609665"></p>
+<p><a href="https://segmentfault.com/a/1190000019495695">文章连接</a></p>
+<h3 id="图片base64"><a href="#图片base64" class="headerlink" title="图片base64"></a>图片base64</h3><p><strong>格式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt;</span><br><span class="line">                &lt;img :src=&quot;`data:image/jpeg;base64,`+hospitalDetailInfo?.hospital?.logoData&quot; alt=&quot;&quot;&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="css技巧"><a href="#css技巧" class="headerlink" title="css技巧"></a>css技巧</h2><h3 id="隐藏滚动条"><a href="#隐藏滚动条" class="headerlink" title="隐藏滚动条"></a>隐藏滚动条</h3><p><img src="/./../img/image-20230504111636389.png" alt="image-20230504111636389"></p>
+<p><img src="/./../img/image-20230504111707911.png" alt="image-20230504111707911"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="美化滚动条"><a href="#美化滚动条" class="headerlink" title="美化滚动条"></a>美化滚动条</h3><p><a href="https://juejin.cn/post/7041076781746487304">文章链接</a></p>
+<h3 id="瀑布流"><a href="#瀑布流" class="headerlink" title="瀑布流"></a>瀑布流</h3><p><img src="/./../img/image-20230528093930219.png" alt="image-20230528093930219"></p>
+<p>效果</p>
+<p><img src="/./../img/image-20230528093940584.png" alt="image-20230528093940584"></p>
+<p>照片墙效果</p>
+<p><img src="/./../img/image-20230528094005215.png" alt="image-20230528094005215"></p>
+<p>做法就是</p>
+<p>父容器</p>
+<p><img src="/./../img/image-20230528094108949.png" alt="image-20230528094108949"></p>
+<p>然后里面的每一个photo-card不要指定 width  因为你colums等于6之后，浏览器自动帮你弄好了width了</p>
+<h2 id="常用封转、库"><a href="#常用封转、库" class="headerlink" title="常用封转、库"></a>常用封转、库</h2><h3 id="节流的库"><a href="#节流的库" class="headerlink" title="节流的库"></a>节流的库</h3><p><a href="https://underscorejs.org/">underscore文档</a></p>
+<p>第一步  在项目中 安装</p>
+<blockquote>
+<p>npm install underscore</p>
+</blockquote>
+<p>第二步 引入</p>
+<blockquote>
+<p><em>import</em> { throttle } <em>from</em> “underscore”</p>
+</blockquote>
+<p>第三步 使用</p>
+<p><img src="/./../img/image-20230506103729821.png" alt="image-20230506103729821"></p>
+]]></content>
   </entry>
   <entry>
-    <title>以后会用到的配置</title>
-    <url>/2023/03/15/%E4%BB%A5%E5%90%8E%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="转载别人文章的规范"><a href="#转载别人文章的规范" class="headerlink" title="转载别人文章的规范"></a>转载别人文章的规范</h3><h4 id="up的教程"><a href="#up的教程" class="headerlink" title="up的教程"></a>up的教程</h4><p><img src="/./../img/image-20230315152554412.png" alt="image-20230315152554412"></p>
-<h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><p><img src="/./../img/image-20230315152624239.png" alt="image-20230315152624239"></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright:  false</span><br></pre></td></tr></table></figure>
+    <title>改bug那些事</title>
+    <url>/2023/04/18/%E6%94%B9bug%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="watch-监视-ref"><a href="#watch-监视-ref" class="headerlink" title="watch 监视 ref"></a>watch 监视 ref</h3><p>问题描述：</p>
+<p>当时在做 usetitle 时发现的</p>
+<p><img src="/./../img/image-20230418123932584.png" alt="image-20230418123932584"></p>
+<p>原因</p>
+<p><img src="/./../img/image-20230418124139158.png" alt="image-20230418124139158"></p>
+<p>自己写的 demo</p>
+<p><img src="/./../img/image-20230418124217055.png" alt="image-20230418124217055"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">&lt;h2&gt;about组件&lt;/h2&gt;</span><br><span class="line">&#123;&#123; cur &#125;&#125;</span><br><span class="line">&lt;button @click=&quot;change&quot;&gt;改变&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123;ref,watch&#125; from &#x27;vue&#x27;</span><br><span class="line">let cur = ref(&#x27;test&#x27;)</span><br><span class="line">watch(cur,(newvalue)=&gt;&#123;</span><br><span class="line">    console.log(newvalue)</span><br><span class="line">&#125;)</span><br><span class="line">function change()&#123;</span><br><span class="line">    cur.value=&#x27;你好&#x27;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copyright _author: xxxx </span><br><span class="line">copyright_ author _href: https://xxxxxx.com </span><br><span class="line">copyright_ url: https://xxxxxx.com </span><br><span class="line">copyright _info: 此文章版权归xxxxx所有，如有转载，请注明来自原作者</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>对象的拷贝</title>
-    <url>/2023/03/20/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h3><p><img src="/./../img/image-20230320103610460.png" alt="image-20230320103610460"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的引用赋值</span><br><span class="line">let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = info</span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // jams</span><br></pre></td></tr></table></figure>
+<h3 id="图片动态-src"><a href="#图片动态-src" class="headerlink" title="图片动态 src"></a>图片动态 src</h3><p>你不能这么写，因为解析时只会把 src&#x3D;“”里面的东西当字符串，不认得@是什么东西</p>
+<p>你需要自己写个函数</p>
+<p><img src="/./../img/image-20230425165631534.png" alt="image-20230425165631534"></p>
+<p><img src="/./../img/image-20230425165938113.png" alt="image-20230425165938113"></p>
+<p>这个函数的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const getAssetURL=(image)=&gt;&#123;</span><br><span class="line">    return new URL(`../$&#123;image&#125;`,import.meta.url).href</span><br><span class="line">    &#125;</span><br><span class="line">export default getAssetURL</span><br></pre></td></tr></table></figure>
 
-<h3 id="对象的浅拷贝"><a href="#对象的浅拷贝" class="headerlink" title="对象的浅拷贝"></a>对象的浅拷贝</h3><p><img src="/./../img/image-20230320103450865.png" alt="image-20230320103450865"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 对象的浅拷贝</span><br><span class="line">        let info= &#123;name:&#x27;kobe&#x27;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.name); // kobe</span><br></pre></td></tr></table></figure>
-
-<p>如果拷贝的对象里的属性中的值也是对象</p>
-<p><img src="/./../img/image-20230320111829811.png" alt="image-20230320111829811"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = Object.assign(&#123;&#125;,info)</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // jams</span><br></pre></td></tr></table></figure>
-
-<h3 id="对象的深拷贝"><a href="#对象的深拷贝" class="headerlink" title="对象的深拷贝"></a>对象的深拷贝</h3><h4 id="原生实现"><a href="#原生实现" class="headerlink" title="原生实现"></a>原生实现</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let info = &#123;name:&#x27;kobe&#x27;,friend:&#123;name:&#x27;curry&#x27;&#125;&#125;</span><br><span class="line">        let obj = JSON.parse(JSON.stringify(info)) //json.stryingfy 将对象转化为字符串  json.parse 将字符串转化为对象</span><br><span class="line">        info.friend.name = &#x27;jams&#x27;</span><br><span class="line">        console.log(obj.friend.name); // curry</span><br></pre></td></tr></table></figure>
-
-<h4 id="引入-lodash-第三方库实现"><a href="#引入-lodash-第三方库实现" class="headerlink" title="引入 lodash 第三方库实现"></a>引入 lodash 第三方库实现</h4>]]></content>
+<p>这个函数能返回图片文件的绝对路径</p>
+<p>具体见</p>
+<p><img src="/./../img/image-20230425170135760.png" alt="image-20230425170135760"></p>
+]]></content>
   </entry>
   <entry>
     <title>vue组件化</title>
@@ -1091,6 +1172,25 @@
 <p><img src="/./../img/image-20230412224546074.png" alt="image-20230412224546074"></p>
 <p>也可以调用组件实例里面的方法</p>
 <p><img src="/./../img/image-20230412224807235.png" alt="image-20230412224807235"></p>
+<h3 id="ref-绑定函数"><a href="#ref-绑定函数" class="headerlink" title="ref 绑定函数"></a>ref 绑定函数</h3><p><img src="/./../img/image-20230512211753645.png" alt="image-20230512211753645"></p>
+<p>value的值就是每一个组件实例对象</p>
+<p><img src="/./../img/image-20230512211917459.png" alt="image-20230512211917459"></p>
+<p>ref函数执行时机：</p>
+<p>这个 getSectionRef的执行时机，这个组件挂载和卸载时都会执行</p>
+<hr>
+<p>应用场景：</p>
+<p>我要拿到上述中所有绑定了这个函数ref的组件的name属性，把这些name属性值放入一个数组中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let sectionEls=ref([])</span><br><span class="line">function getSectionRef(value)&#123;</span><br><span class="line">    sectionEls.value.push(value.$el.getAttribute(&#x27;name&#x27;))</span><br><span class="line">    console.log(sectionEls.value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你也可以把这些组件全部放到一个数组中进行管理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let sectionRefs=ref([])</span><br><span class="line">function getSectionRef(value) &#123;</span><br><span class="line">    sectionRefs.value.push(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>小bug</p>
+<p>当你点击了这个退出去的时候 控制太会报错</p>
+<p><img src="/./../img/image-20230513194937144.png" alt="image-20230513194937144"></p>
+<p>原因 ： 你卸载组价的时候 ref的函数也会执行 但是它的value值是null 所以解决这个问题也很简单</p>
+<p><img src="/./../img/image-20230513195053408.png" alt="image-20230513195053408"></p>
 <h3 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h3><h4 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h4><p><img src="/./../img/image-20230414082026296.png" alt="image-20230414082026296"></p>
 <h4 id="props-语法糖"><a href="#props-语法糖" class="headerlink" title="props 语法糖"></a>props 语法糖</h4><p>传数据还是用以前的方式传</p>
 <p>接收数据用 defineProps<br><img src="/./../img/image-20230414082427531.png" alt="image-20230414082427531"></p>
@@ -1376,27 +1476,276 @@
 ]]></content>
   </entry>
   <entry>
-    <title>改bug那些事</title>
-    <url>/2023/04/18/%E6%94%B9bug%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="watch-监视-ref"><a href="#watch-监视-ref" class="headerlink" title="watch 监视 ref"></a>watch 监视 ref</h3><p>问题描述：</p>
-<p>当时在做 usetitle 时发现的</p>
-<p><img src="/./../img/image-20230418123932584.png" alt="image-20230418123932584"></p>
+    <title>git操作</title>
+    <url>/2023/08/12/coderWhy_git/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h3><p><img src="/./../img/image-20230812212939545.png" alt="image-20230812212939545"></p>
+<p>在公司拿到电脑后 下载git 第一步 就配置这个  因为你每次提交 都会携带你的信息</p>
+<p><img src="/./../img/image-20230812212823738.png" alt="image-20230812212823738"></p>
+<p><strong>配置别名（了解）</strong></p>
+<p><img src="/./../img/image-20230812213127123.png" alt="image-20230812213127123"></p>
+<h3 id="git状态"><a href="#git状态" class="headerlink" title="git状态"></a>git状态</h3><p><img src="/./../img/image-20230813095639063.png" alt="image-20230813095639063"></p>
+<p><img src="/./../img/image-20230813100217590.png" alt="image-20230813100217590"></p>
+<p><strong>官方的图</strong></p>
+<p><img src="/./../img/image-20230813100333944.png" alt="image-20230813100333944"></p>
+<p><img src="/./../img/image-20230813101059082.png" alt="image-20230813101059082"></p>
+<p><strong>git status</strong></p>
+<p><img src="/./../img/image-20230813111939411.png" alt="image-20230813111939411"></p>
+<p><img src="/./../img/image-20230813112036232.png" alt="image-20230813112036232"></p>
+<h3 id="git忽略文件"><a href="#git忽略文件" class="headerlink" title="git忽略文件"></a>git忽略文件</h3><p><img src="/./../img/image-20230813115419282.png" alt="image-20230813115419282"></p>
+<p>例如 node mudules</p>
+<p>一般你的vue脚手架创建完项目后  会自动帮你生成一个gitingnore文件  然后里面该忽略完什么已经帮你写完了</p>
+<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><p><img src="/./../img/image-20230813143616198.png" alt="image-20230813143616198"></p>
+<p>版本回退</p>
+<p><img src="/./../img/image-20230813144051882.png" alt="image-20230813144051882"></p>
+<p><img src="/./../img/image-20230813144152587.png" alt="image-20230813144152587"></p>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p><img src="/./../img/image-20230813164503409.png" alt="image-20230813164503409"></p>
+<h3 id="拉代码"><a href="#拉代码" class="headerlink" title="拉代码"></a>拉代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull &lt;remote&gt; &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>设定上游分支的代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch --set-upstream-to=origin/master</span><br></pre></td></tr></table></figure>
+
+<p><strong>git pull &#x3D; git fetch + git merge</strong></p>
+<p>如果你直接pull时发生如下错误的话</p>
+<p><img src="/./../img/image-20230814200340045.png" alt="image-20230814200340045"></p>
 <p>原因</p>
-<p><img src="/./../img/image-20230418124139158.png" alt="image-20230418124139158"></p>
-<p>自己写的 demo</p>
-<p><img src="/./../img/image-20230418124217055.png" alt="image-20230418124217055"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">&lt;h2&gt;about组件&lt;/h2&gt;</span><br><span class="line">&#123;&#123; cur &#125;&#125;</span><br><span class="line">&lt;button @click=&quot;change&quot;&gt;改变&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123;ref,watch&#125; from &#x27;vue&#x27;</span><br><span class="line">let cur = ref(&#x27;test&#x27;)</span><br><span class="line">watch(cur,(newvalue)=&gt;&#123;</span><br><span class="line">    console.log(newvalue)</span><br><span class="line">&#125;)</span><br><span class="line">function change()&#123;</span><br><span class="line">    cur.value=&#x27;你好&#x27;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/./../img/image-20230814195645335.png" alt="image-20230814195645335"></p>
+<p>你要先</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch</span><br></pre></td></tr></table></figure>
 
-<h3 id="图片动态-src"><a href="#图片动态-src" class="headerlink" title="图片动态 src"></a>图片动态 src</h3><p>你不能这么写，因为解析时只会把 src&#x3D;“”里面的东西当字符串，不认得@是什么东西</p>
-<p>你需要自己写个函数</p>
-<p><img src="/./../img/image-20230425165631534.png" alt="image-20230425165631534"></p>
-<p><img src="/./../img/image-20230425165938113.png" alt="image-20230425165938113"></p>
-<p>这个函数的代码</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const getAssetURL=(image)=&gt;&#123;</span><br><span class="line">    return new URL(`../$&#123;image&#125;`,import.meta.url).href</span><br><span class="line">    &#125;</span><br><span class="line">export default getAssetURL</span><br></pre></td></tr></table></figure>
+<p>然后再</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
 
-<p>这个函数能返回图片文件的绝对路径</p>
-<p>具体见</p>
-<p><img src="/./../img/image-20230425170135760.png" alt="image-20230425170135760"></p>
+<p>这样之后就可以成功拉代码啦</p>
+<h3 id="你在公司做的操作"><a href="#你在公司做的操作" class="headerlink" title="你在公司做的操作"></a>你在公司做的操作</h3><p><img src="/./../img/image-20230815112146914.png" alt="image-20230815112146914"></p>
+<p><strong>视频见</strong></p>
+<p><img src="/./../img/image-20230815112518299.png" alt="image-20230815112518299"></p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a><strong>分支</strong></h3><p><img src="/./../img/image-20230817101912209.png" alt="image-20230817101912209"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20230816220343463.png" alt="image-20230816220343463"></p>
+<p><img src="/./../img/image-20230817104646050.png" alt="image-20230817104646050"></p>
+<p><strong>删除分支</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -d master</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20230817130046673.png" alt="image-20230817130046673"></p>
+<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><h3 id="常见开源协议"><a href="#常见开源协议" class="headerlink" title="常见开源协议"></a>常见开源协议</h3><p><img src="/./../img/image-20230815154454876.png" alt="image-20230815154454876"></p>
+<p>mit是一种相对宽松的开源协议</p>
+<p><img src="/./../img/image-20230816152224538.png" alt="image-20230816152224538"></p>
+<p><img src="/./../img/image-20230816152646447.png" alt="image-20230816152646447"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ts</title>
+    <url>/2023/05/16/ts/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h4><p><img src="/./../img/image-20230516144327586.png" alt="image-20230516144327586"></p>
+<h4 id="运行-ts-文件"><a href="#运行-ts-文件" class="headerlink" title="运行 ts 文件"></a>运行 ts 文件</h4><p>你需要安装以下这些包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i ts-node -g</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i tslib @types/node -g</span><br></pre></td></tr></table></figure>
+
+<p>然后运行 ts 文件</p>
+<p><img src="/./../img/image-20230516150412220.png" alt="image-20230516150412220"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ts-node hello.ts</span><br></pre></td></tr></table></figure>
+
+<h4 id="类型注解"><a href="#类型注解" class="headerlink" title="类型注解"></a>类型注解</h4><p><img src="/./../img/image-20230516151105464.png" alt="image-20230516151105464"></p>
+<h4 id="类型推导"><a href="#类型推导" class="headerlink" title="类型推导"></a>类型推导</h4><p><img src="/./../img/image-20230516151025326.png" alt="image-20230516151025326"></p>
+<p><img src="/./../img/image-20230516151300235.png" alt="image-20230516151300235"></p>
+<p><img src="/./../img/image-20230516164158309.png" alt="image-20230516164158309"></p>
+<h2 id="ts-数据类型"><a href="#ts-数据类型" class="headerlink" title="ts 数据类型"></a>ts 数据类型</h2><p>其实大部分和 JavaScript 差不多，不过多赘述了，接下来只讲一些不一样的</p>
+<h3 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h3><p><img src="/./../img/image-20230516165205443.png" alt="image-20230516165205443"></p>
+<h3 id="函数参数类型"><a href="#函数参数类型" class="headerlink" title="函数参数类型"></a>函数参数类型</h3><p><img src="/./../img/image-20230516170339349.png" alt="image-20230516170339349"></p>
+<p>函数的返回值可以明确指定，也可以通过类型推导推出来，看个人爱好</p>
+<h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h3><p>基本使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type pointType =&#123;</span><br><span class="line">    x:number,</span><br><span class="line">    y:number,</span><br><span class="line">    z?:number // 可选</span><br><span class="line">&#125;</span><br><span class="line">function printPoint(point:pointType)&#123;</span><br><span class="line">console.log(point.x)</span><br><span class="line">console.log(point.y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">printPoint(&#123;x:1,y:2&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="any-类型"><a href="#any-类型" class="headerlink" title="any 类型"></a>any 类型</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// any类型  ：   不限制标识符的任意类型 并且你可以对标识符进行任意操作</span><br><span class="line">let id:any = &#x27;aaa&#x27;</span><br><span class="line">id=2</span><br><span class="line">console.log(id.length)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let arr:any[]=[&#x27;aaa&#x27;,123,&#123;age:12&#125;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="unknown-类型"><a href="#unknown-类型" class="headerlink" title="unknown 类型"></a>unknown 类型</h3><p><img src="/./../img/image-20230517105701177.png" alt="image-20230517105701177"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let id:unknown = 123</span><br><span class="line">id=&#x27;aaaa&#x27;</span><br><span class="line">console.log(id) // aaaa  输出打印是允许的</span><br><span class="line">// 但是调用一些方法 还有对这个数据进行操作是不允许的</span><br><span class="line">console.log(id.lenght)  // 报错</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20230517110459791.png" alt="image-20230517110459791"></p>
+<h3 id="void-类型"><a href="#void-类型" class="headerlink" title="void 类型"></a>void 类型</h3><p><img src="/./../img/image-20230621215242368.png" alt="image-20230621215242368"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function foo(a:number,b:number):void&#123;</span><br><span class="line">    console.log(a+b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="never-类型"><a href="#never-类型" class="headerlink" title="never 类型"></a>never 类型</h3><p><img src="/./../img/image-20230621225208502.png" alt="image-20230621225208502"></p>
+<p><img src="/./../img/image-20230621220927187.png" alt="image-20230621220927187"></p>
+<p>千言万语汇成一句话 罕见</p>
+<p>这里举两个栗子</p>
+<p><img src="/./../img/image-20230621222140906.png" alt="image-20230621222140906"></p>
+<p>数组中无任何东西，所以是 never</p>
+<p><img src="/./../img/image-20230621221213456.png" alt="image-20230621221213456"></p>
+<h3 id="元组类型"><a href="#元组类型" class="headerlink" title="元组类型"></a>元组类型</h3><p><img src="/./../img/image-20230622151223161.png" alt="image-20230622151223161"></p>
+<p><img src="/./../img/image-20230622150843992.png" alt="image-20230622150843992"></p>
+<h2 id="新类型"><a href="#新类型" class="headerlink" title="新类型"></a>新类型</h2><h3 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h3><p><img src="/./../img/image-20230622193409719.png" alt="image-20230622193409719"></p>
+<h3 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h3><p>type</p>
+<p><img src="/./../img/image-20230622200043958.png" alt="image-20230622200043958"></p>
+<p>自己写的代码<br><img src="/./../img/image-20230622200650158.png" alt="image-20230622200650158"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type MyNumber = number</span><br><span class="line">let age:MyNumber = 19</span><br><span class="line"></span><br><span class="line">type IdType = string | number</span><br><span class="line">function foo(id:IdType)&#123;</span><br><span class="line">    console.log(id)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">type PointType=&#123;</span><br><span class="line">    x:number,</span><br><span class="line">    y:number</span><br><span class="line">&#125;</span><br><span class="line">function printPoint(point:PointType)&#123;</span><br><span class="line">console.log(point.x)</span><br><span class="line">console.log(point.y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>以声明的方式来定义<br><img src="/./../img/image-20230622201727153.png" alt="image-20230622201727153"></p>
+<h3 id="type-与接口的区别"><a href="#type-与接口的区别" class="headerlink" title="type 与接口的区别"></a>type 与接口的区别</h3><p>区别一：</p>
+<p>只能声明对象</p>
+<p><img src="/./../img/image-20230622202056037.png" alt="image-20230622202056037"></p>
+<p>区别二</p>
+<p>允许多次声明</p>
+<p><img src="/./../img/image-20230622202118401.png" alt="image-20230622202118401"></p>
+<p>区别三</p>
+<p>可继承</p>
+<p><img src="/./../img/image-20230622202527470.png" alt="image-20230622202527470"></p>
+<p>区别四</p>
+<p>可以被类实现</p>
+<p><img src="/./../img/image-20230622202835542.png" alt="image-20230622202835542"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><img src="/./../img/image-20230622202938347.png" alt="image-20230622202938347"></p>
+<h3 id="交叉类型"><a href="#交叉类型" class="headerlink" title="交叉类型"></a>交叉类型</h3><p>多种类型同时满足</p>
+<p><img src="/./../img/image-20230622203241548.png" alt="image-20230622203241548"></p>
+<h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><p><img src="/./../img/image-20230622220634349.png" alt="image-20230622220634349"></p>
+<p>整段代码要自己看一遍</p>
+<p><img src="/./../img/image-20230622220450888.png" alt="image-20230622220450888"></p>
+<p><img src="/./../img/image-20230622221007907.png" alt="image-20230622221007907"></p>
+<h3 id="非空类型断言"><a href="#非空类型断言" class="headerlink" title="非空类型断言"></a>非空类型断言</h3><p>慎用</p>
+<p><img src="/./../img/image-20230622223623022.png" alt="image-20230622223623022"></p>
+<h3 id="字面量类型"><a href="#字面量类型" class="headerlink" title="字面量类型"></a>字面量类型</h3><p><img src="/./../img/image-20230623102452921.png" alt="image-20230623102452921"></p>
+<p>栗子</p>
+<p><img src="/./../img/image-20230623102835135.png" alt="image-20230623102835135"></p>
+<p>小细节</p>
+<p><img src="/./../img/image-20230623103209351.png" alt="image-20230623103209351"></p>
+<p>正确作法</p>
+<p><img src="/./../img/image-20230623103239962.png" alt="image-20230623103239962"></p>
+<p>解决方案二</p>
+<p><img src="/./../img/image-20230623103333527.png" alt="image-20230623103333527"></p>
+<p>解决方案三</p>
+<p>字面量推理</p>
+<p><img src="/./../img/image-20230623103431944.png" alt="	"></p>
+<h3 id="类型缩小"><a href="#类型缩小" class="headerlink" title="类型缩小"></a>类型缩小</h3><p><img src="/./../img/image-20230623103903660.png" alt="image-20230623103903660"></p>
+<p>typeof 进行类型缩小</p>
+<p><img src="/./../img/image-20230623104139334.png" alt="image-20230623104139334"></p>
+<p>in 进行类型缩小</p>
+<p><img src="/./../img/image-20230623154206402.png" alt="image-20230623154206402"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface ISwim &#123;</span><br><span class="line">    swim:()=&gt;void</span><br><span class="line">&#125;</span><br><span class="line">interface IRun &#123;</span><br><span class="line">    run:()=&gt;void</span><br><span class="line">&#125;</span><br><span class="line">let fish:ISwim = &#123;</span><br><span class="line">swim: function()&#123;</span><br><span class="line">    console.log(&#x27;i can swim&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">let dog:IRun = &#123;</span><br><span class="line">    run:function()&#123;</span><br><span class="line">        console.log(&#x27;i can run &#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function foo(aniaml:IRun | ISwim)&#123;</span><br><span class="line">    // animal这个对象有没有 swim这个属性</span><br><span class="line">    if(&quot;swim&quot; in aniaml)&#123;</span><br><span class="line">        console.log(&#x27;this is a fish&#x27;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        console.log(&#x27;this is a dog&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo(fish)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h3><h4 id="函数类型表达式"><a href="#函数类型表达式" class="headerlink" title="函数类型表达式"></a>函数类型表达式</h4><p>表示函数类型</p>
+<p><img src="/./../img/image-20230623155022756.png" alt="image-20230623155022756"></p>
+<p><img src="/./../img/image-20230623155222428.png" alt="image-20230623155222428"></p>
+<p>正式写法</p>
+<p><img src="/./../img/image-20230623155204371.png" alt="image-20230623155204371"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type FooType = (num1:number)=&gt;number</span><br><span class="line">let foo:FooType = (num:number):number=&gt;&#123;</span><br><span class="line">    return 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20230623155722036.png" alt="image-20230623155722036"></p>
+<h4 id="调用签名"><a href="#调用签名" class="headerlink" title="调用签名"></a>调用签名</h4><p><img src="/./../img/image-20230623220522040.png" alt="image-20230623220522040"></p>
+<p>你这个函数 既可以被调用 也可以有自己的属性</p>
+<p><img src="/./../img/image-20230623220926155.png" alt="	"></p>
+<p>自己写的代码</p>
+<p><img src="/./../img/image-20230623222931660.png" alt="image-20230623222931660"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">interface IFoo &#123;</span><br><span class="line">    name:string,</span><br><span class="line">    age:number,</span><br><span class="line">    (num1:number):number</span><br><span class="line">&#125;</span><br><span class="line">const foo:IFoo = (num:number):number=&gt;&#123;</span><br><span class="line">return 22</span><br><span class="line">&#125;</span><br><span class="line">foo.name = &#x27;ss&#x27;</span><br><span class="line">foo.age=11</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="构造签名"><a href="#构造签名" class="headerlink" title="构造签名"></a>构造签名</h3><p>理解即可</p>
+<p><img src="/./../img/image-20230624200839470.png" alt="image-20230624200839470"></p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p><img src="/./../img/image-20230623220749006.png" alt="image-20230623220749006"></p>
+<h3 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h3><p><img src="/./../img/image-20230707101908695.png" alt="image-20230707101908695"></p>
+<blockquote>
+<p>+运算符两边不能是联合类型</p>
+</blockquote>
+<p>我们这里得用到重载 （即函数以不同的方式进行调用）</p>
+<p>重载签名的使用</p>
+<p><img src="/./../img/image-20230707103102131.png" alt="image-20230707103102131"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 函数重载的编写方法</span><br><span class="line"></span><br><span class="line">// 先写重载签名</span><br><span class="line">function add(arg1:number,arg2:number):number</span><br><span class="line">function add(arg1:string,arg2:string):string</span><br><span class="line"></span><br><span class="line">// 再写通用的调用方式</span><br><span class="line">function add(arg1,arg2)&#123;</span><br><span class="line">    return arg1+arg2</span><br><span class="line">&#125;</span><br><span class="line">add(1,2)</span><br><span class="line">export &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>应用场景：</p>
+<p>在编写工具库的时候比较常用，在写自己的业务代码时，不怎么常用</p>
+<h3 id="ts-中-this-的类型"><a href="#ts-中-this-的类型" class="headerlink" title="ts 中 this 的类型"></a>ts 中 this 的类型</h3><p><img src="/./../img/image-20230707104013318.png" alt="image-20230707104013318"></p>
+<p>其余的自己看视频吧</p>
+<p>有用到 this 的配置….</p>
+<h3 id="ts-内置工具"><a href="#ts-内置工具" class="headerlink" title="ts 内置工具"></a>ts 内置工具</h3><p>自己去看老师的视频</p>
+<p>其中一个我自己敲过的代码是 使用 thistype 这个工具改变 this</p>
+<p><img src="/./../img/image-20230707111837200.png" alt="image-20230707111837200"></p>
+<p>源码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface IState &#123;</span><br><span class="line">    name:string,</span><br><span class="line">    age:number</span><br><span class="line">&#125;</span><br><span class="line">interface IStore &#123;</span><br><span class="line">    state:IState</span><br><span class="line">    eating: ()=&gt;void</span><br><span class="line">    running:()=&gt;void</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">const store:IStore &amp; ThisType&lt;IState&gt;= &#123;</span><br><span class="line">    state:&#123;</span><br><span class="line">        name:&#x27;sss&#x27;,</span><br><span class="line">        age:22</span><br><span class="line">    &#125;,</span><br><span class="line">    eating()&#123;</span><br><span class="line">console.log(this.name)</span><br><span class="line">    &#125;,</span><br><span class="line">    running()&#123;</span><br><span class="line">console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">store.eating.call(store.state)</span><br></pre></td></tr></table></figure>
+
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p><img src="/./../img/image-20230623185940881.png" alt="image-20230623185940881"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>uniapp基础</title>
+    <url>/2023/08/12/uniapp/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="认识跨平台开发"><a href="#认识跨平台开发" class="headerlink" title="认识跨平台开发"></a>认识跨平台开发</h2><h3 id="原生vs跨平台开发"><a href="#原生vs跨平台开发" class="headerlink" title="原生vs跨平台开发"></a>原生vs跨平台开发</h3><p><img src="/./../img/image-20230812095209962.png" alt="image-20230812095209962"></p>
+<p><img src="/./../img/image-20230812095359862.png" alt="image-20230812095359862"></p>
+<h3 id="认识uniapp"><a href="#认识uniapp" class="headerlink" title="认识uniapp"></a>认识uniapp</h3><p><img src="/./../img/image-20230812095454811.png" alt="image-20230812095454811"></p>
+<h3 id="uniapp-vs-小程序"><a href="#uniapp-vs-小程序" class="headerlink" title="uniapp vs 小程序"></a>uniapp vs 小程序</h3><p><img src="/./../img/image-20230812095935914.png" alt="image-20230812095935914"></p>
+<h3 id="adb调试桥"><a href="#adb调试桥" class="headerlink" title="adb调试桥"></a>adb调试桥</h3><p><img src="/./../img/image-20230812131950674.png" alt="image-20230812131950674"></p>
+<p><img src="/./../img/image-20230812132029971.png" alt="image-20230812132029971"></p>
+<p>hbuilder  adb所在目录</p>
+<p><img src="/./../img/image-20230812133422433.png" alt="image-20230812133422433"></p>
+<p><img src="/./../img/image-20230812133655331.png" alt="image-20230812133655331"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect 127.0.0.1:7555</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2023/05/16/%E5%85%AB%E8%82%A1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><p>1.tcp丢包 乱序问题是如何解决的</p>
+<h2 id="八股"><a href="#八股" class="headerlink" title="八股"></a>八股</h2><h3 id="http-1"><a href="#http-1" class="headerlink" title="http"></a>http</h3><h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p><img src="/./../img/image-20230815230314448.png" alt="image-20230815230314448"></p>
+<p><img src="/./../img/image-20230814201715082.png" alt="image-20230814201715082"></p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p><img src="/./../img/image-20230816113912225.png" alt="image-20230816113912225"></p>
+<p><img src="/./../img/image-20230816113921224.png" alt="image-20230816113921224"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ts泛型</title>
+    <url>/2023/07/11/ts%E6%B3%9B%E5%9E%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="类型参数化"><a href="#类型参数化" class="headerlink" title="类型参数化"></a>类型参数化</h3><p><img src="/./../img/image-20230711201436317.png" alt="image-20230711201436317"></p>
+<p>以下代码理解即可</p>
+<p><img src="/./../img/image-20230711202757378.png" alt="image-20230711202757378"></p>
+<p>多个参数</p>
+<p><img src="/./../img/image-20230713220427026.png" alt="image-20230713220427026"></p>
+<p><img src="/./../img/image-20230713220518584.png" alt="image-20230713220518584"></p>
+<hr>
+<h3 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h3><p>我们定义接口的时候，也是可以使用泛型的</p>
+<p><img src="/./../img/image-20230713220946838.png" alt="image-20230713220946838"></p>
+<p><img src="/./../img/image-20230713221351946.png" alt="image-20230713221351946"></p>
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h3><p><img src="/./../img/image-20230713221715356.png" alt="image-20230713221715356"></p>
+<h3 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h3><p><img src="/./../img/image-20230713222015276.png" alt="image-20230713222015276"></p>
+<p><img src="/./../img/image-20230713222921688.png" alt="image-20230713222921688"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface ILength &#123;</span><br><span class="line">    length:number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  需求 ： 你传入的参数 必须有length属性</span><br><span class="line">function foo&lt;T extends ILength&gt;(arg:T)&#123;</span><br><span class="line">console.log(arg.length)</span><br><span class="line">&#125;</span><br><span class="line">foo(&#x27;sss&#x27;)</span><br><span class="line">foo(&#123;length:1&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>ts面向对象</title>
+    <url>/2023/07/07/ts%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p><img src="/./../img/image-20230707160049464.png" alt="image-20230707160049464"></p>
+<h3 id="类的修饰符"><a href="#类的修饰符" class="headerlink" title="类的修饰符"></a>类的修饰符</h3><p><img src="/./../img/image-20230707160933982.png" alt="image-20230707160933982"></p>
+<p>默认是 public</p>
+<p>private:</p>
+<p><img src="/./../img/image-20230707163818150.png" alt="image-20230707163818150"></p>
+<p>然后 protected 就是只能在类中或者子类中调用</p>
+<p>而被private修饰的成员属性是不能在子类中被调用的，只能在自己本身类中调用</p>
+<h3 id="只读属性"><a href="#只读属性" class="headerlink" title="只读属性"></a>只读属性</h3><p><img src="/./../img/image-20230707192241692.png" alt="image-20230707192241692"></p>
+<h3 id="get与set"><a href="#get与set" class="headerlink" title="get与set"></a>get与set</h3><p><img src="/./../img/image-20230707200143563.png" alt="image-20230707200143563"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    // 一般来说 私有属性的写法 前面加_</span><br><span class="line">    private _name:string</span><br><span class="line">    constructor(name:string)&#123;</span><br><span class="line">this._name = name</span><br><span class="line">    &#125;</span><br><span class="line">    set name(newValue)&#123;</span><br><span class="line">        this._name = newValue</span><br><span class="line">    &#125;</span><br><span class="line">    get name()&#123;</span><br><span class="line">        return this._name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let p1 = new Person(&#x27;aa&#x27;)</span><br><span class="line">p1.name = &#x27;zs&#x27;</span><br><span class="line">console.log(p1.name)</span><br></pre></td></tr></table></figure>
+
+<p>以上只是给你展示一下这个get set的基本使用语法</p>
+<p>它的应用场景一般是对属性修改进行一个拦截的操作</p>
+<p>例如</p>
+<p><img src="/./../img/image-20230707201015094.png" alt="image-20230707201015094"></p>
+<h3 id="参数属性"><a href="#参数属性" class="headerlink" title="参数属性"></a>参数属性</h3><p><img src="/./../img/image-20230708111250592.png" alt="image-20230708111250592"></p>
+<p>这样之后 就不用一个个在上面初始化属性了</p>
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p><img src="/./../img/image-20230708152828569.png" alt="image-20230708152828569"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 抽象类的定义</span><br><span class="line">abstract class Shape &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    // 抽象方法 只是声明  没有实现   实现是在子类中实现，而且子类中必须实现抽象方法</span><br><span class="line">    // 抽象方法只能在抽象类中</span><br><span class="line">    abstract getArea()</span><br><span class="line">&#125;</span><br><span class="line">class Rectangle extends Shape &#123;</span><br><span class="line">    constructor(public width:number,public height:number)&#123;</span><br><span class="line">        super()</span><br><span class="line">    &#125;</span><br><span class="line">    getArea() &#123;</span><br><span class="line">        return this.width*this.height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Circle extends Shape &#123;</span><br><span class="line">    constructor(public radius:number)&#123;</span><br><span class="line">        super()</span><br><span class="line">    &#125;</span><br><span class="line">    getArea() &#123;</span><br><span class="line">        return this.radius**2*Math.PI</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Triangle extends Shape &#123;</span><br><span class="line">    constructor(public bottom:number,public height:number)&#123;</span><br><span class="line">        super()</span><br><span class="line">    &#125;</span><br><span class="line">    getArea() &#123;</span><br><span class="line">        return this.bottom * this.height / 2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 通用函数 </span><br><span class="line">function calcArea(shape:Shape)&#123;</span><br><span class="line">return shape.getArea()</span><br><span class="line">&#125;</span><br><span class="line">console.log(calcArea(new Circle(2)))</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口继承"><a href="#接口继承" class="headerlink" title="接口继承"></a>接口继承</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    name:string</span><br><span class="line">    age:number</span><br><span class="line">&#125;</span><br><span class="line">interface IKun extends Person &#123;</span><br><span class="line">slogan:string</span><br><span class="line">&#125;</span><br><span class="line">let p1:IKun = &#123;</span><br><span class="line">    name:&#x27;ss&#x27;,</span><br><span class="line">    age:10,</span><br><span class="line">    slogan:&#x27;aa&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口被类实现"><a href="#接口被类实现" class="headerlink" title="接口被类实现"></a>接口被类实现</h3><p><img src="/./../img/image-20230709151841679.png" alt="image-20230709151841679"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    name:string</span><br><span class="line">    age:number</span><br><span class="line">&#125;</span><br><span class="line">interface IKun extends Person &#123;</span><br><span class="line">slogan:string</span><br><span class="line">playBasketball:()=&gt;void</span><br><span class="line">&#125;</span><br><span class="line">let p1:IKun = &#123;</span><br><span class="line">    name:&#x27;ss&#x27;,</span><br><span class="line">    age:10,</span><br><span class="line">    slogan:&#x27;aa&#x27;,</span><br><span class="line">    playBasketball()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 接口被类实现</span><br><span class="line">class Test implements IKun &#123;</span><br><span class="line">    name: &#x27;aa&#x27;</span><br><span class="line">    age:22</span><br><span class="line">    slogan: &#x27;wwww&#x27;</span><br><span class="line">    playBasketball()&#123;</span><br><span class="line">        console.log(&#x27;打篮球&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个类可以实现多个接口</p>
+<p><img src="/./../img/image-20230709152200214.png" alt="image-20230709152200214"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    name:string</span><br><span class="line">    age:number</span><br><span class="line">&#125;</span><br><span class="line">interface IKun extends Person &#123;</span><br><span class="line">slogan:string</span><br><span class="line">playBasketball:()=&gt;void</span><br><span class="line">&#125;</span><br><span class="line">interface IRun &#123;</span><br><span class="line">    running:()=&gt;void</span><br><span class="line">&#125;</span><br><span class="line">let p1:IKun = &#123;</span><br><span class="line">    name:&#x27;ss&#x27;,</span><br><span class="line">    age:10,</span><br><span class="line">    slogan:&#x27;aa&#x27;,</span><br><span class="line">    playBasketball()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 接口被类实现</span><br><span class="line">class Test implements IKun,IRun &#123;</span><br><span class="line">    name: &#x27;aa&#x27;</span><br><span class="line">    age:22</span><br><span class="line">    slogan: &#x27;wwww&#x27;</span><br><span class="line">    playBasketball()&#123;</span><br><span class="line">        console.log(&#x27;打篮球&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">    running()&#123;</span><br><span class="line">        console.log(&#x27;run&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="抽象类和接口之间的区别"><a href="#抽象类和接口之间的区别" class="headerlink" title="抽象类和接口之间的区别"></a>抽象类和接口之间的区别</h3><p>详见  第三天</p>
+<p><img src="/./../img/image-20230709225723576.png" alt="image-20230709225723576"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 枚举类型</span><br><span class="line">enum Direction &#123;</span><br><span class="line">    left,up,down,right</span><br><span class="line">&#125;</span><br><span class="line">let d1:Direction = Direction.down</span><br><span class="line">function turnDirection(d:Direction)&#123;</span><br><span class="line">    switch(Direction)&#123;</span><br><span class="line">        // 这里就写你的逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">turnDirection(d1)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p><img src="/./../img/image-20230715105236252.png" alt="image-20230715105236252"></p>
+<h3 id="内置类型导入"><a href="#内置类型导入" class="headerlink" title="内置类型导入"></a>内置类型导入</h3><p><img src="/./../img/image-20230715111211832.png" alt="image-20230715111211832"></p>
+<p><img src="/./../img/image-20230715111541789.png" alt="image-20230715111541789"></p>
 ]]></content>
   </entry>
 </search>
